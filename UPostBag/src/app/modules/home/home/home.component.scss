@@ -1,63 +1,114 @@
 
- body {
+body {
   background: #121212;
   color:#E8EAED;
   font-family: 'Montserrat', sans-serif;
   font-style:bold;
   padding: 0px;
   margin: 0px;
- 
-
 }
 
-
-.new-item-section {
-  text-align: center;
-  justify-content:center;
-  align-items:center;
-  height:10%;
-}
-
-.new-item-section input {
-background:#202124;
-height:100%;
-margin:0px;
-padding-top: 0px;
-border-right:0px;
-border-bottom:1px solid #303134;
-
-
-}
-.add{
-background:#202124;
- color:#9AA0A6;
-height: 100%;
-
-align-self: center;
-border-right:0px;
-border-left:0px;
-border-top:0px;
-border-bottom:1px solid #303134;
-
-}
 .header {
   background: #303134;
   margin:auto;
-  height: 10%;
-
-
+  height: 6%;
+ 
 }
+
 .logo-nav-container{
  align-items: stretch;
  display: flex;
- justify-content: space-between;
  align-items:center;
+ justify-content:space-between;
 
 }
 
-
 .logo-nav-container button {
-border:0;
-background:#303134;
-color:#9AA0A6;
+  border:0px;
+  background:#303134;
+  color:#9AA0A6;
+  margin:1.5%;
+}
+.account{
+ 
+}
+.share{
+  
+}
+.more{
+  align-self:flex-end;
+}
+.new-item-section {
+  padding-top: 3%;
+  text-align: center;
+  justify-content:center;
+  display:flex;
+  height:7%;
+}
+
+.new-item-section input {
+  background:#202124;
+  height:95%;
+  width: 50%;
+  margin:0px;
+  border-left:0px;
+  border-right:0px;
+  border-bottom:1px solid #303134;
+}
+
+.add{
+  background:#202124;
+  color:#9AA0A6;
+  height: 95%;
+  width:6%;
+  padding:0px;
+  border-right:0px;
+  border-left:0px;
+  border-top:0px;
+  border-bottom:1px solid #303134;
+
+}
+
+.suggestion-items {
+  background:#202124;
+  height: 7%;
+  width:56%;
+ 
+  display:flex;
+  justify-content:center;
+ 
+  
+  margin:auto;
+  margin-top:-0.6%;
+
+  border-right:0px;
+  border-left:0px;
+  border-top:0px;
+  border-bottom:1px solid #303134;
+  overflow: scroll;
+}
+.suggestion-items button{
+   height:65%;
+   margin-top:2%;
+
+   
+ 
+ 
+}
+  ::-webkit-scrollbar{
+        height: 4px;
+        width: 4px;
+        background: gray;
+    }
+    ::-webkit-scrollbar-thumb:horizontal{
+        background: #000;
+        border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:vertical{
+        border-radius:0px;
+         width: 0px;
+    }
+
+.items-list {
+  
 }
