@@ -12,9 +12,6 @@ export class HomeComponent implements OnInit {
   constructor( private authSvc: AuthService ) { }
 
   ngOnInit(): void {
-  }
-
-  ngAfterContentChecked(){
     //this.authSvc.onLoginGoogle();
   }
 }

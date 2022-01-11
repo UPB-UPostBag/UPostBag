@@ -14,22 +14,51 @@
     
 </head>
 <body>
-    <navbar></navbar>
-    
-    <main class= "main">
-        <div class="new-item-section">
-            <button id="btn_add" class="material-icons add">add</button>
-            <input type="text" id="new-article">
-            <div class="items-list">
-               <ul>
-              
-                </ul>
-            </div>
-           
-          
-        </div>
-    </main>
-    
+    <mat-sidenav-container>
+        <mat-sidenav #sidenav>
+            <navbar></navbar>
+        </mat-sidenav>
+        <mat-sidenav-content style="background-color: #121212;">
+            <header class= "header">
+                <div class="container logo-nav-container">
+                     <button id="btn_menu" class="material-icons menu" (click)="sidenav.toggle()" >menu</button>
+                     <label>UPostBag Shopping List</label>
+                     <button id="btn_share" class="material-icons share">share</button>
+                     <button id="btn_more" class="material-icons more">more_vert</button>
+                     <button id="btn_account_pfp" class="material-icons account">account_circle</button>
+              </div>     
+            </header>
+            <main class= "main">
+                <div class="new-item-section">
+                    <button id="btn_add" class="material-icons add">add</button>
+                    <input type="text" id="new-article" >
+                  
+                </div>
+                <div class="suggestion-items">
+                  <button id="btn_before" class="material-icons navigate_before">navigate_before</button>
+                    <div class="suggested-list">
+                        <button id="tomate" class="tomate">tomate</button>
+                        <button id="sandia" class="sandia">sandia</button>
+                        <button id="tomate" class="tomate">tomate</button>
+                        <button id="sandia" class="sandia">sandia</button>
+                        <button id="tomate" class="tomate">tomate</button>
+                        <button id="sandia" class="sandia">sandia</button>
+                        <button id="tomate" class="tomate">tomate</button>
+                        <button id="sandia" class="sandia">sandia</button>
+                        <button id="tomate" class="tomate">tomate</button>
+                    </div>
+                
+                  <button id="btn_next" class="material-icons navigate_next">navigate_next</button>
+                  
+                </div>
+                    <div class="items-list">
+                       <ul>
+                      
+                       </ul>
+                    </div>
+            </main>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
     <footer class = "footer">
         <div class="container">
             <P>@UPostBag</P>

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 const route: Routes = [
   {
@@ -18,7 +19,10 @@ const route: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(route)
+    RouterModule.forChild(route),
+    //Angular Material
+    MatSidenavModule,
+    
   ]
 })
 export class HomeModule { }

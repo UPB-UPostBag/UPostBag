@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/service/firebase/auth.service';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @Component({
   selector: 'navbar',
@@ -7,6 +8,8 @@ import { AuthService } from 'src/app/service/firebase/auth.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+
+  isSideNavOpened : Boolean = false;
 
   constructor( private authSvc: AuthService ) { }
 

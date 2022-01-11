@@ -8,7 +8,9 @@ import { first } from 'rxjs/operators';
 })
 export class AuthService {
 
-  constructor( public firebaseAuth: AngularFireAuth ) { }
+  constructor( public firebaseAuth: AngularFireAuth ) { 
+
+  }
   
   async onLoginGoogle() {
     this.logout();
@@ -17,7 +19,9 @@ export class AuthService {
       //localStorage.setItem('user', JSON.stringify((await authUser).user));
       return authUser;
     } catch (error) {
-      alert('hubo un error con el servicio de google,favor de intentar de nuevo o contactar a soporte');
+      console.log(error);
+      alert('matufiada');
+      const authUser = this.firebaseAuth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
     }
   }
 

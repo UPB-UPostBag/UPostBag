@@ -8,10 +8,11 @@ import { AuthService } from './service/firebase/auth.service';
 import { environment } from 'src/environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
+import { FormsModule } from '@angular/forms';
 
 const route: Routes = [
   {
-    path:"", redirectTo: "home", pathMatch: "full"
+    path:"", redirectTo: "login", pathMatch: "full"
   }, {
     path: "home", loadChildren:() => import("./modules/home/home.module").then(m => m.HomeModule)
   }, {
@@ -24,11 +25,13 @@ const route: Routes = [
     AppComponent
   ],
   imports: [
-    BrowserModule,
-    RouterModule.forRoot(route),
     NgbModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    FormsModule,
+    BrowserModule,
     BrowserAnimationsModule,
+    RouterModule.forRoot(route),
+    //FireBase
+    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
