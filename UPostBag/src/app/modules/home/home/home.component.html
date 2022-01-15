@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
 </head>
-<body>
+<body class="clickdiv"   *ngIf="!redirectTo; else sharepage" >
     <mat-sidenav-container>
         <mat-sidenav #sidenav>
             <navbar></navbar>
@@ -21,13 +21,21 @@
         <mat-sidenav-content style="background-color: #121212;">
             <header class= "header">
                 <div class="container logo-nav-container">
-                     <button id="btn_menu" class="material-icons menu" (click)="sidenav.toggle()" >menu</button>
-                     <label>UPostBag Shopping List</label>
-                     <button id="btn_share" class="material-icons share">share</button>
-                     <button id="btn_more" class="material-icons more">more_vert</button>
-                     <button mat-mini-fab icon-profile style="background-image: url({{actualUser.photoURL}}); background-repeat: no-repeat; background-size: cover; background-position: center;"></button>
-              </div>     
-            </header>
+                  <button  id="btn_menu" class="material-icons" (click)="sidenav.toggle()" >menu</button>
+                  <label>UPostBag Shopping List</label>
+                  <button id="btn_share" class="material-icons share" >share</button>
+                  <div class= "agregar_colaborador"> 
+                    <button id="btn_more" class="material-icons more">more_vert</button>
+                    <div class= "add_colab_btn" >
+                      <button  id="add_colaborator"  (click)="redirectTo = !redirectTo" >
+                        <span  class="material-icons add_person">person_add_alt</span>
+                        <span class="text_button">Agregar colaborador</span>
+                      </button>
+                    </div>
+                  </div>
+                  <button mat-mini-fab icon-profile style="background-image: url({{actualUser.photoURL}}); background-repeat: no-repeat; background-size: cover; background-position: center;"></button>
+                </div>     
+              </header>
             <main class= "main">
                 <div class="new-item-section">
                     <button id="btn_add" class="material-icons add">add</button>
@@ -65,4 +73,7 @@
         </div>
     </footer>
 </body>
+<ng-template  #sharepage>
+    <colaborators (go_back_click)="goBackClicked($event)"> </colaborators>
+</ng-template >
 </html>

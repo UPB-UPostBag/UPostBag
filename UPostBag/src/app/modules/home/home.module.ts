@@ -5,10 +5,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
+import { ColaboratorsComponent } from './colaborators/colaborators.component';
 
 const route: Routes = [
   {
     path: "", component: HomeComponent
+  },
+  {
+    path: "addcolaborators", component: ColaboratorsComponent
   }
 
 ];
@@ -16,7 +20,8 @@ const route: Routes = [
 @NgModule({
   declarations: [
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    ColaboratorsComponent
   ],
   imports: [
     CommonModule,
