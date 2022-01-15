@@ -12,16 +12,9 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private authSvc: AuthService) { }
 
   async ngOnInit() {
-      
-    /**
-     * verificamos si ya esta registrado el usuario
-     * en caso de que re direccione a home
-     * sino al login google
-     * (Router)
-    /*/
     const actualUser = localStorage.getItem('user');
     if (actualUser != null) { 
-      //this.router.navigate(['/home']);
+      this.router.navigate(['/home']);
     } else {
       
     }
@@ -31,17 +24,6 @@ export class LoginComponent implements OnInit {
     try {
       await (this.authSvc.onLoginGoogle()).then(() => {
         this.router.navigate(['/home']);
-      });
-    } catch (error) {
-      this.authSvc.logout();
-      alert('Error al iniciar sesión, Favor contactarse con soporte')
-    }
-  }
-
-  async logout() {
-    try {
-      await (this.authSvc.logout()).then(() => {
-        //this.router.navigate(['/login']);
       });
     } catch (error) {
       this.authSvc.logout();

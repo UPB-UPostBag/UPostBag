@@ -15,7 +15,7 @@ export class AuthService {
   }
   
   async onLoginGoogle() {
-    //this.logout();
+    this.logout();
     try {
       const authUser = this.firebaseAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(
         res => {
