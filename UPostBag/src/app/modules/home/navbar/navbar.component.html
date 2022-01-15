@@ -1,15 +1,31 @@
 <header class= "header">
-    <div class="container logo-nav-container">
-      
-     
-         <button id="btn_menu" class="material-icons">menu</button>
-         <label>UPostBag Shopping List</label>
-         <button id="btn_share" class="material-icons share">share</button>
-         <button id="btn_more" class="material-icons more">more_vert</button>
-         <button id="btn_account_pfp" class="material-icons account" (click)="login()">account_circle</button>
-         <button id="btn_account_pfp" class="material-icons account" (click)="logout()">logout</button>
- 
-      
+  <div class="container logo-nav-container">
+
+
+    <button  id="btn_menu" class="material-icons" >menu</button>
+    <label>UPostBag Shopping List</label>
+
+    <button id="btn_share" class="material-icons share" >share</button>
+
+
+    <div class= "agregar_colaborador"> 
+      <button id="btn_more" class="material-icons more">more_vert</button>
+
+      <div class= "add_colab_btn" >
+        <button  id="add_colaborator"  (click)="click_Notif_More(true)" >
+          <span  class="material-icons add_person">person_add_alt</span>
+          <span class="text_button">Agregar colaborador</span>
+        </button>
+        
+      </div>
+
+    </div>
+
+    <button id="btn_account_pfp" class="material-icons account" (click)="login()">account_circle</button>
+    <button id="btn_account_pfp" class="material-icons account" (click)="logout()">logout</button>
+
+
   </div>     
-   
+
 </header>
+ <!-- <colaborators *ngIf="redirectTo"></colaborators> --> 

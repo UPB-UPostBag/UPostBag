@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  EventEmitter, Output } from '@angular/core';
 import { AuthService } from 'src/app/service/firebase/auth.service';
+import{Router} from '@angular/router';
+
 
 @Component({
   selector: 'navbar',
@@ -8,7 +10,10 @@ import { AuthService } from 'src/app/service/firebase/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor( private authSvc: AuthService ) { }
+
+  constructor( private authSvc: AuthService, private router:Router ) { }
+
+ 
 
   ngOnInit(): void {
   }
@@ -19,5 +24,15 @@ export class NavbarComponent implements OnInit {
 
   logout(){
     this.authSvc.logout();
+    
   }
+
+  title = 'UPostBag';
+
+  @Output() change_page_click = new EventEmitter<boolean>();
+
+  click_Notif_More(msg:boolean){
+    this.change_page_click.emit(msg);
+  }
+
 }

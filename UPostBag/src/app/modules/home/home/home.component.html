@@ -13,41 +13,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
 </head>
-<body>
-    <navbar></navbar>
-    
-    <main class= "main">
-        <div class="new-item-section">
-            <button id="btn_add" class="material-icons add">add</button>
-            <input type="text" id="new-article">
-          
-        </div>
-        <div class="suggestion-items">
-          <button id="tomate" class="tomate">tomate</button>
-          <button id="sandia" class="sandia">sandia</button>
-          <button id="tomate" class="tomate">tomate</button>
-          <button id="sandia" class="sandia">sandia</button>
-          <button id="tomate" class="tomate">tomate</button>
-          <button id="sandia" class="sandia">sandia</button>
-          <button id="tomate" class="tomate">tomate</button>
-          <button id="sandia" class="sandia">sandia</button>
-          <button id="tomate" class="tomate">tomate</button>
-          <button id="sandia" class="sandia">sandia</button>
-          <button id="tomate" class="tomate">tomate</button>
-          <button id="sandia" class="sandia">sandia</button>
-             
-        </div>
-            <div class="items-list">
-               <ul>
-              
-               </ul>
+<body >
+   
+   
+    <div class="clickdiv"   *ngIf="!redirectTo; else sharepage" >
+   
+        <navbar (change_page_click)="moreClicked($event)"></navbar>
+        
+
+
+        <main class= "main">
+            <div class="new-item-section">
+            
+                <button id="btn_add" class="material-icons add">add</button>
+                <input type="text" id="new-article" placeholder="Agregar artículo">
+            
             </div>
-    </main>
+            <div class="suggestion-items">
+            <button id="btn_before" class="material-icons navigate_before">navigate_before</button>
+                <div class="suggested-list">
+                    <button id="tomate" class="tomate">tomate</button>
+                    <button id="sandia" class="sandia">sandia</button>
+                    <button id="tomate" class="tomate">tomate</button>
+                    <button id="sandia" class="sandia">sandia</button>
+                    <button id="tomate" class="tomate">tomate</button>
+                    <button id="sandia" class="sandia">sandia</button>
+                    <button id="tomate" class="tomate">tomate</button>
+                    <button id="sandia" class="sandia">sandia</button>
+                    <button id="tomate" class="tomate">tomate</button>
+                </div>
+            
+            <button id="btn_next" class="material-icons navigate_next">navigate_next</button>
+            
+            </div>
+                <div class="items-list">
+                <ul>
+                
+                </ul>
+                </div>
+        </main>
     
+
+
+
+    </div>
+
+
+        
+<ng-template  #sharepage>
+      <colaborators (go_back_click)="goBackClicked($event)"> </colaborators>
+</ng-template >
+  
+
+
+
     <footer class = "footer">
         <div class="container">
             <P>@UPostBag</P>
         </div>
     </footer>
+
+
+
+
 </body>
+
+
+
+
 </html>

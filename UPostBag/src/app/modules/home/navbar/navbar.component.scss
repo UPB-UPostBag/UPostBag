@@ -44,6 +44,7 @@
     background: #303134;
     margin:auto;
     height: 10%;
+    font-weight: bold;
   
   
   }
@@ -53,13 +54,48 @@
    justify-content: space-between;
    align-items:center;
   
+  } 
+  
+  .more{
+    visibility: visible;
   }
-  
-  
   .logo-nav-container button {
   border:0;
   background:#303134;
   color:#9AA0A6;
   }
+
+  .agregar_colaborador:focus-within  .add_colab_btn {
+    visibility: visible;
+    position: relative;
   
+  }
+  .add_colab_btn {
+ 
+    visibility: hidden;
+    background-color: #303134;
+    align-items: stretch;
+    -webkit-flex-direction: column-reverse;
+    display: flex;
+    flex-direction: column-reverse;
+    margin:auto;
+    justify-items: center;
+    
+  }
+
+  .text_button{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    justify-self: center;
+  }
+
+
+
+ 
+  .agregar_colaborador:before{
+  
+    content: #121212;
+    border-style: solid;
+
+  }
   
