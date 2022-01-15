@@ -5,10 +5,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from './service/firebase/auth.service';
-import { environment } from 'src/environments/environment';
+import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
-import { FormsModule } from '@angular/forms';
+import { AngularFirestoreModule } from '@angular/fire/firestore'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const route: Routes = [
   {
@@ -28,10 +29,12 @@ const route: Routes = [
     NgbModule,
     FormsModule,
     BrowserModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(route),
     //FireBase
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

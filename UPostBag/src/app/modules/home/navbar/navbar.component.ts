@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/service/firebase/auth.service';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { DatabaseService } from 'src/app/service/firebase/database.service';
+import { ShoppingList } from 'src/app/service/models/shopping-list.model';
+import { AuthService } from '../../../service/firebase/auth.service';
 
 @Component({
   selector: 'navbar',
@@ -10,10 +11,13 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 export class NavbarComponent implements OnInit {
 
   isSideNavOpened : Boolean = false;
+  allShoppingLists: ShoppingList[];
 
-  constructor( private authSvc: AuthService ) { }
+  constructor( private authSvc: AuthService, private databaseSvc: DatabaseService ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.getAllList();
+    console.log(this.allShoppingLists);
   }
 
   login(){
@@ -22,5 +26,26 @@ export class NavbarComponent implements OnInit {
 
   logout(){
     this.authSvc.logout();
+  }
+
+  getAllList(){
+    this.databaseSvc.getAllList().subscribe(res => {
+      this.allShoppingLists = res.map( e => {
+        return {
+          id : e.payload.doc.id,
+          ...e.payload.doc.data() as {}
+        } as ShoppingList;
+      } )
+    } ); 
+  }
+
+  removeList(list){
+    if( confirm("Esta seguro de eliminar" + list.name ) ){
+      this.databaseSvc.deleteList(list);
+    }
+  }
+
+  redirectToCOllaborator(){
+    
   }
 }

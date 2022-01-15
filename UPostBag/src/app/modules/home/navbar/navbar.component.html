@@ -2,7 +2,23 @@
   Lista Primaria
   <button>?</button>
 </p> 
-<!-- TODO, meke the arrays of list-->
+<table class="table">
+  <tbody>
+    <tr *ngFor=" let list of allShoppingLists; let i = index">
+      <td>
+        <span>
+          {{list.name}}
+          <br>
+          items 1
+        </span>
+      </td>
+      <td>
+        boton
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button>Create New List</button>
 <p>Send FeedBack</p>
 <p>Help</p>
 <p>Privacy - terms</p>

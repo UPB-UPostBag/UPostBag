@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/service/firebase/auth.service';
-//import { AuthService } from 'src/app/service/firebase/auth.service';
+import { ShoppingList } from 'src/app/service/models/shopping-list.model';
+import { AuthService } from '../../../service/firebase/auth.service';
+import { DatabaseService } from '../../../service/firebase/database.service';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +9,35 @@ import { AuthService } from 'src/app/service/firebase/auth.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  actualUser;
+  allShoppingLists: ShoppingList[];
 
-  constructor( private authSvc: AuthService ) { }
+  constructor( private authSvc: AuthService, private databaseSvc: DatabaseService) { }
 
-  ngOnInit(): void {
-    //this.authSvc.onLoginGoogle();
+  ngOnInit(){
+    this.actualUser = JSON.parse( localStorage.getItem('user') );
+    this.getAllList();
   }
+
+  login(){
+    this.authSvc.onLoginGoogle();
+  }
+
+  getAllList(){
+    this.databaseSvc.getAllList().subscribe(res => {
+      this.allShoppingLists = res.map( e => {
+        return {
+          id : e.payload.doc.id,
+          ...e.payload.doc.data() as {}
+        } as ShoppingList;
+      } )
+    } ); 
+  }
+
+  removeList(list){
+    if( confirm("Esta seguro de eliminar" + list.name ) ){
+      this.databaseSvc.deleteList(list);
+    }
+  }
+
 }

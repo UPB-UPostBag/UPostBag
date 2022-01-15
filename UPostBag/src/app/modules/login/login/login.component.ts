@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/service/firebase/auth.service';
+import { AuthService } from '../../../service/firebase/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -19,9 +19,9 @@ export class LoginComponent implements OnInit {
      * sino al login google
      * (Router)
     /*/
-     const actualUser = localStorage.getItem('user');
+    const actualUser = localStorage.getItem('user');
     if (actualUser != null) { 
-      this.router.navigate(['/mainPage']);
+      //this.router.navigate(['/home']);
     } else {
       
     }
@@ -31,6 +31,17 @@ export class LoginComponent implements OnInit {
     try {
       await (this.authSvc.onLoginGoogle()).then(() => {
         this.router.navigate(['/home']);
+      });
+    } catch (error) {
+      this.authSvc.logout();
+      alert('Error al iniciar sesión, Favor contactarse con soporte')
+    }
+  }
+
+  async logout() {
+    try {
+      await (this.authSvc.logout()).then(() => {
+        //this.router.navigate(['/login']);
       });
     } catch (error) {
       this.authSvc.logout();

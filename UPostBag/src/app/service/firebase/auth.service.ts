@@ -7,27 +7,31 @@ import { first } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
+  public user: firebase.User;
+  isLoggedIn = false;
 
   constructor( public firebaseAuth: AngularFireAuth ) { 
 
   }
   
   async onLoginGoogle() {
-    this.logout();
+    //this.logout();
     try {
-      const authUser = this.firebaseAuth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
-      //localStorage.setItem('user', JSON.stringify((await authUser).user));
+      const authUser = this.firebaseAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(
+        res => {
+          localStorage.setItem('user', JSON.stringify(res.user) );
+        }
+      );
+      
       return authUser;
     } catch (error) {
       console.log(error);
-      alert('matufiada');
-      const authUser = this.firebaseAuth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
     }
   }
 
   async logout() {
     try {
-      //localStorage.removeItem('user');
+      localStorage.removeItem('user');
       return (await this.firebaseAuth.signOut());
     } catch (error) {
       alert('hubo un error con el servicio de google,contactar a soporte');
