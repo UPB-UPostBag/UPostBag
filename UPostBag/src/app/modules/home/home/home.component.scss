@@ -86,6 +86,8 @@ body {
  
 }
 
+
+
 .add{
   background:#202124;
   color:#9AA0A6;
@@ -236,3 +238,16 @@ mat-sidenav {
   border-style: solid;
 
 }
+.modal{
+  background-color: rgba(0, 0, 0, 0);
+  
+}
+
+.modal-content {
+  background-color: #202124;
+}
+
+.modal-header {
+  flex-direction: column-reverse;
+}
+

@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;600&display=swap" rel="stylesheet">
+ 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -23,7 +24,18 @@
                 <div class="container logo-nav-container">
                   <button  id="btn_menu" class="material-icons" (click)="sidenav.toggle()" >menu</button>
                   <label>UPostBag Shopping List</label>
-                  <button id="btn_share" class="material-icons share" >share</button>
+
+
+                  <button id="btn_share" class="material-icons share" data-bs-toggle="modal" data-bs-target="#regmodal" >share</button>
+     
+
+                 
+                
+<!--
+            
+              -->
+                
+
                   <div class= "agregar_colaborador"> 
                     <button id="btn_more" class="material-icons more">more_vert</button>
                     <div class= "add_colab_btn" >
@@ -72,8 +84,52 @@
             <P>@UPostBag</P>
         </div>
     </footer>
+
+    <div id="regmodal" class="modal fade" role="dialog"  tabindex="-1" >
+      <div class="modal-dialog modal-dialog-centered ">
+        <div class="modal-content" >
+          <div class="modal-header">
+            <h5>Share</h5>
+           
+            <p><br>Lista de Shopping</p>
+
+          </div>
+          <div class="modal-body ">
+              <button>We need more information</button>
+            </div>
+          <div class="modal-body">
+            
+            <p>skdnflsdfggkdnfnfkdkl</p>
+            <label for="modal-email" class="form-label"> your email</label>
+          </div>
+          <div class="modal-footer">
+              <button class="apps-shared-with">get apps in store</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modaldeinfo" class="modal fade" role="dialog"  tabindex="-1" >
+      <div class="modal-dialog modal-dialog-centered ">
+        <div class="modal-content" >
+          <div class="modal-header">
+            <h5>Lista principal</h5>
+ 
+          </div>
+          
+          <div class="modal-body">
+            <p>Cuando agrega artículos con el Asistente de Google, estos se agregan a su lista principal. Puede cambiar su lista principal en cualquier momento.</p>
+          </div>
+          <div class="modal-footer">
+              <button class="btn_entendido">Entendido</button>
+          </div>
+        </div>
+      </div>
+    </div>
 </body>
 <ng-template  #sharepage>
     <colaborators (go_back_click)="goBackClicked($event)"> </colaborators>
 </ng-template >
+
+
 </html>
