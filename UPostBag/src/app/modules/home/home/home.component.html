@@ -62,10 +62,10 @@
                   
                   </ul>
                 </div>
-                
+
                     <div class="items-list">
                        <ul>
-                        <product-item [productsItems] = "allShoppingLists[0].products"></product-item>
+                        <product-item [productsItems] = "allShoppingLists"></product-item>
                        </ul>
                     </div>
             </main>
@@ -121,7 +121,7 @@
     </div>
 </body>
 <ng-template  #sharepage>
-    <colaborators (go_back_click)="goBackClicked($event)" [collaboratorsUsers] = "allShoppingLists[0].users"> </colaborators>
+    <colaborators (go_back_click)="goBackClicked($event)" [collaboratorsUsers] = "allShoppingLists"> </colaborators>
 </ng-template >
 
 

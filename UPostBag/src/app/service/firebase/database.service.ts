@@ -13,8 +13,8 @@ export class DatabaseService {
     return this.angularFirestore.collection(collection).snapshotChanges();
   }
 
-  getList(uid){
-    return this.angularFirestore.collection("shoppingList").doc(uid).valueChanges();
+  getDocumentOf(collection,uid){
+    return this.angularFirestore.collection(collection).doc(uid).valueChanges();
   } 
 
   createList(list: ShoppingList){
