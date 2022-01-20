@@ -1,0 +1,10 @@
+<div class="suggestion-items">
+    <button id="btn_before" class="material-icons navigate_before">navigate_before</button>
+      <div class="suggested-list">
+          <button *ngFor=" let item of products[0].items; let i = index">
+              <img src="{{item.photoURL}}">
+              {{item.name}}
+          </button>
+      </div>
+    <button id="btn_next" class="material-icons navigate_next">navigate_next</button>    
+</div>

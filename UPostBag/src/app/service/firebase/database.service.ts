@@ -9,8 +9,8 @@ export class DatabaseService {
 
   constructor( private angularFirestore: AngularFirestore ) { }
 
-  getAllList(){
-    return this.angularFirestore.collection("shoppingList").snapshotChanges();
+  getAllOf(collection: string){
+    return this.angularFirestore.collection(collection).snapshotChanges();
   }
 
   getList(uid){

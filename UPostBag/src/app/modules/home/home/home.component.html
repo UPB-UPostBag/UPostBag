@@ -16,7 +16,7 @@
 <body class="clickdiv"   *ngIf="!redirectTo; else sharepage" >
     <mat-sidenav-container>
         <mat-sidenav #sidenav>
-            <navbar></navbar>
+            <navbar [allShoppingLists] = "allShoppingLists"></navbar>
         </mat-sidenav>
         <mat-sidenav-content style="background-color: #121212;">
             <header class= "header">
@@ -42,26 +42,13 @@
                     <input type="text" id="new-article" >
                   
                 </div>
-                <div class="suggestion-items">
-                  <button id="btn_before" class="material-icons navigate_before">navigate_before</button>
-                    <div class="suggested-list">
-                        <button id="tomate" class="tomate">tomate</button>
-                        <button id="sandia" class="sandia">sandia</button>
-                        <button id="tomate" class="tomate">tomate</button>
-                        <button id="sandia" class="sandia">sandia</button>
-                        <button id="tomate" class="tomate">tomate</button>
-                        <button id="sandia" class="sandia">sandia</button>
-                        <button id="tomate" class="tomate">tomate</button>
-                        <button id="sandia" class="sandia">sandia</button>
-                        <button id="tomate" class="tomate">tomate</button>
-                    </div>
+
+                <product-by-default></product-by-default>
                 
-                  <button id="btn_next" class="material-icons navigate_next">navigate_next</button>
-                  
-                </div>
+
                     <div class="items-list">
                        <ul>
-                      
+                        <product-item [productsItems] = "allShoppingLists[0].products"></product-item>
                        </ul>
                     </div>
             </main>
@@ -74,6 +61,6 @@
     </footer>
 </body>
 <ng-template  #sharepage>
-    <colaborators (go_back_click)="goBackClicked($event)"> </colaborators>
+    <colaborators (go_back_click)="goBackClicked($event)" [collaboratorsUsers] = "allShoppingLists[0].users"> </colaborators>
 </ng-template >
 </html>

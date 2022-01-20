@@ -6,6 +6,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { ColaboratorsComponent } from './colaborators/colaborators.component';
+import { ProductItemComponent } from './product-item/product-item.component';
+import { ProductByDefaultComponent } from './product-by-default/product-by-default.component';
 
 const route: Routes = [
   {
@@ -21,7 +23,9 @@ const route: Routes = [
   declarations: [
     HomeComponent,
     NavbarComponent,
-    ColaboratorsComponent
+    ColaboratorsComponent,
+    ProductItemComponent,
+    ProductByDefaultComponent
   ],
   imports: [
     CommonModule,

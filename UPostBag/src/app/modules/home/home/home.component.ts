@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(){
     this.actualUser = JSON.parse( localStorage.getItem('user') );
+    console.log("user", this.actualUser);
     this.getAllList();
   }
 
@@ -31,13 +32,14 @@ export class HomeComponent implements OnInit {
   }
 
   getAllList(){
-    this.databaseSvc.getAllList().subscribe(res => {
+    this.databaseSvc.getAllOf("shoppingList").subscribe(res => {
       this.allShoppingLists = res.map( e => {
         return {
           id : e.payload.doc.id,
           ...e.payload.doc.data() as {}
         } as ShoppingList;
       } )
+      console.log("home Shopping List", this.allShoppingLists);
     } ); 
   }
 

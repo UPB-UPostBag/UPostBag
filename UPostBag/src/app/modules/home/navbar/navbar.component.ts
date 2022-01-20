@@ -1,4 +1,4 @@
-import { Component, OnInit,  EventEmitter, Output } from '@angular/core';;
+import { Component, OnInit,  EventEmitter, Output, Input } from '@angular/core';;
 import { DatabaseService } from 'src/app/service/firebase/database.service';
 import { ShoppingList } from 'src/app/service/models/shopping-list.model';
 import { AuthService } from '../../../service/firebase/auth.service';
@@ -14,12 +14,12 @@ export class NavbarComponent implements OnInit {
 
   isSideNavOpened : Boolean = false;
   allShoppingLists: ShoppingList[];
-  
+  myEmail = "georgeilr99@gmail.com";
+
   constructor( private authSvc: AuthService, private databaseSvc: DatabaseService,private router:Router  ) { }
 
   ngOnInit() {
-    this.getAllList();
-    console.log(this.allShoppingLists);
+    this.getLists();
   }
 
   login(){
@@ -39,24 +39,21 @@ export class NavbarComponent implements OnInit {
     this.change_page_click.emit(msg);
   }
 
-  getAllList(){
-    this.databaseSvc.getAllList().subscribe(res => {
-      this.allShoppingLists = res.map( e => {
-        return {
-          id : e.payload.doc.id,
-          ...e.payload.doc.data() as {}
-        } as ShoppingList;
-      } )
-    } ); 
-  }
-
   removeList(list){
     if( confirm("Esta seguro de eliminar" + list.name ) ){
       this.databaseSvc.deleteList(list);
     }
   }
 
-  redirectToCOllaborator(){
-    
+  getLists(){
+    this.databaseSvc.getAllOf("shoppingList").subscribe(res => {
+      this.allShoppingLists = res.map( e => {
+        return {
+          id : e.payload.doc.id,
+          ...e.payload.doc.data() as {}
+        } as ShoppingList;
+      } )
+    } );  
+    //Aqui necesito mis listas, no todas las listas (filtrado)
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit ,  EventEmitter, Output} from '@angular/core';
+import { Component, OnInit ,  EventEmitter, Output, Input} from '@angular/core';
 
 @Component({
   selector: 'colaborators',
@@ -6,10 +6,12 @@ import { Component, OnInit ,  EventEmitter, Output} from '@angular/core';
   styleUrls: ['./colaborators.component.scss']
 })
 export class ColaboratorsComponent implements OnInit {
+  @Input() collaboratorsUsers;
 
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 

@@ -78,12 +78,9 @@ body {
   -webkit-flex-direction: column-reverse;
   display: flex;
   flex-direction: column-reverse;
-
   color: #fafafa;
   font-weight:bold ;
- 
   box-shadow: none;
- 
 }
 
 .add{
@@ -98,7 +95,7 @@ body {
   border-bottom:1.5px solid #414244;
 }
 
-.suggestion-items {
+/*.suggestion-items {
   background:#202124;
   width:46%;
   height: 30%;
@@ -124,9 +121,8 @@ body {
    background:#202124;
    color:#E8EAED;
    font-weight: bold;
-  
- 
-}
+}*/
+
 .navigate_next{
   border-radius:35px;
   height:10%;
