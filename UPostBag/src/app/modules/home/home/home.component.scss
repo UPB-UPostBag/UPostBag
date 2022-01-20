@@ -112,7 +112,7 @@ body {
   border-left:0px;
   border-top:0px;
   border-bottom:1.5px solid #414244;
-
+  box-shadow: none;
    margin-top:2%;
    margin-right: 2%;
    border-radius:6px;
@@ -157,24 +157,41 @@ body {
   
  
 }
-.navigate_next{
-  border-radius:35px;
-  height:10%;
-  width:2.9%;
-
-  ::-webkit-scrollbar{
-      height: 4px;
-      width: 4px;
-      background: gray;
-  }
-  ::-webkit-scrollbar-thumb:horizontal{
-      background-color: #000;
-      border-radius: 10px;
-  }
-  ::-webkit-scrollbar-thumb:vertical{
-      border-radius:0px;
-       width: 0px;
-  }
+.colaborators-pfps-miniatures{
+  border:1.5px solid #414244;
+  background:#202124;
+  color:#E8EAED;
+  width:46%;
+  height: 20%;
+  border-right:0px;
+  border-left:0px;
+  border-top:0px;
+  border-bottom:1.5px solid #414244;
+  margin:auto;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+   margin-top:2%;
+   margin-right: 2%;
+   border-radius:6px;
+}
+.items-list{
+  border:1.5px solid #414244;
+  background:#202124;
+  color:#E8EAED;
+  width:46%;
+  height: 70%;
+  border-right:0px;
+  border-left:0px;
+  border-top:0px;
+  border-bottom:1.5px solid #414244;
+  margin:auto;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+   margin-top:2%;
+   margin-right: 2%;
+   border-radius:6px;
 }
 
 mat-sidenav-container {
@@ -232,3 +249,16 @@ mat-sidenav {
   border-style: solid;
 
 }
+.modal{
+  background-color: rgba(0, 0, 0, 0);
+  
+}
+
+.modal-content {
+  background-color: #202124;
+}
+
+.modal-header {
+  flex-direction: column-reverse;
+}
+
