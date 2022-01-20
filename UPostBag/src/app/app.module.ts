@@ -10,21 +10,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import {IvyCarouselModule} from 'angular-responsive-carousel';
 const route: Routes = [
   {
-    path:"", redirectTo: "login", pathMatch: "full"
+    path: "", redirectTo: "login", pathMatch: "full"
   }, {
-    path: "home", loadChildren:() => import("./modules/home/home.module").then(m => m.HomeModule)
+    path: "home", loadChildren: () => import("./modules/home/home.module").then(m => m.HomeModule)
   }, {
-    path: "login", loadChildren:() => import("./modules/login/login.module").then(m => m.LoginModule)
+    path: "login", loadChildren: () => import("./modules/login/login.module").then(m => m.LoginModule)
   }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    
+
   ],
   imports: [
     NgbModule,
@@ -35,7 +35,8 @@ const route: Routes = [
     RouterModule.forRoot(route),
     //FireBase
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    IvyCarouselModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

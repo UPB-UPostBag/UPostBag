@@ -6,10 +6,10 @@ body {
   padding: 0px;
   margin: 0px;
 }
-
+label { color : #ffff;}
 .header {
   background: #303134;
-  margin:auto;
+  margin: 0%;
   height: 6%;
  
 }
@@ -19,16 +19,19 @@ body {
  display: flex;
  align-items:center;
  justify-content:space-between;
+ margin: 0px;
 }
 
 .logo-nav-container button {
   border:0px;
   background:#303134;
   color:#9AA0A6;
-  margin:1.5%;
+  margin: -10px;
+  
 }
 .more{
   align-self:flex-end;
+  
 }
 .new-item-section {
   padding-top: 3%;
@@ -57,7 +60,7 @@ body {
   background:#202124;
   color:#9AA0A6;
   height: 100%;
-  width:6%;
+  width:60%;
   padding:0px;
   border-right:0px;
   border-left:0px;
@@ -209,6 +212,7 @@ mat-sidenav {
 .agregar_colaborador:focus-within  .add_colab_btn {
   visibility: visible;
   position: relative;
+  
 
 }
 .add_colab_btn {
@@ -219,7 +223,7 @@ mat-sidenav {
   -webkit-flex-direction: column-reverse;
   display: flex;
   flex-direction: column-reverse;
-  margin:auto;
+  
   justify-items: center;
   
 }

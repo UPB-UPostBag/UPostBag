@@ -3,6 +3,8 @@ import { ShoppingList } from 'src/app/service/models/shopping-list.model';
 import { AuthService } from '../../../service/firebase/auth.service';
 import { DatabaseService } from '../../../service/firebase/database.service';
 import { ColaboratorsComponent } from '../colaborators/colaborators.component';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
+
 
 @Component({
   selector: 'app-home',

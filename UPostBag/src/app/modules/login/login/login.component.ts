@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
     if (actualUser != null) { 
       this.router.navigate(['/home']);
     } else {
-      
+      console.log("NO ESTA")
     }
   }
 
