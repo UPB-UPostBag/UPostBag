@@ -71,11 +71,16 @@
                   <button id="btn_next" class="material-icons navigate_next">navigate_next</button>
                   
                 </div>
-                    <div class="items-list">
-                       <ul>
-                      
-                       </ul>
-                    </div>
+                <div class = "colaborators-pfps-miniatures">
+                  <ul>
+                  
+                  </ul>
+                </div>
+                <div class="items-list">
+                    <ul>
+                  
+                    </ul>
+                </div>
             </main>
         </mat-sidenav-content>
     </mat-sidenav-container>
@@ -100,10 +105,11 @@
           <div class="modal-body">
             
             <p>skdnflsdfggkdnfnfkdkl</p>
-            <label for="modal-email" class="form-label"> your email</label>
+            <label for="modal-email" class="form-label"> Apps </label>
+            <button class="facebook_btn" (click)="shareOnFacebook('http://localhost:4200/home')"></button>
           </div>
           <div class="modal-footer">
-              <button class="apps-shared-with">get apps in store</button>
+              <button class="apps-shared-with" (click)="redirectToAppStore()" >Get apps in store</button>
           </div>
         </div>
       </div>

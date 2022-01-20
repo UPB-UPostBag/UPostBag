@@ -57,6 +57,15 @@ export class HomeComponent implements OnInit {
       }
   }
 
+
+  redirectToAppStore= function () {
+    window.open('https://www.microsoft.com/es-bo/store/apps/windows');
+  };
+
+
+
+
+
 }
 
 
