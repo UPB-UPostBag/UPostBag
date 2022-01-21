@@ -17,7 +17,7 @@
 <body class="clickdiv"   *ngIf="!redirectTo; else sharepage" >
     <mat-sidenav-container>
         <mat-sidenav #sidenav>
-            <navbar></navbar>
+            <navbar [allShoppingLists] = "allShoppingLists"></navbar>
         </mat-sidenav>
         <mat-sidenav-content style="background-color: #121212;">
             <header class= "header">
@@ -54,33 +54,20 @@
                     <input type="text" id="new-article" >
                   
                 </div>
-                <div class="suggestion-items">
-                  <button id="btn_before" class="material-icons navigate_before">navigate_before</button>
-                    <div class="suggested-list">
-                        <button id="tomate" class="tomate">tomate</button>
-                        <button id="sandia" class="sandia">sandia</button>
-                        <button id="tomate" class="tomate">tomate</button>
-                        <button id="sandia" class="sandia">sandia</button>
-                        <button id="tomate" class="tomate">tomate</button>
-                        <button id="sandia" class="sandia">sandia</button>
-                        <button id="tomate" class="tomate">tomate</button>
-                        <button id="sandia" class="sandia">sandia</button>
-                        <button id="tomate" class="tomate">tomate</button>
-                    </div>
+
+                <product-by-default></product-by-default>
                 
-                  <button id="btn_next" class="material-icons navigate_next">navigate_next</button>
-                  
-                </div>
                 <div class = "colaborators-pfps-miniatures">
                   <ul>
                   
                   </ul>
                 </div>
-                <div class="items-list">
-                    <ul>
-                  
-                    </ul>
-                </div>
+
+                    <div class="items-list">
+                       <ul>
+                        <product-item [productsItems] = "allShoppingLists"></product-item>
+                       </ul>
+                    </div>
             </main>
         </mat-sidenav-content>
     </mat-sidenav-container>
@@ -132,9 +119,32 @@
         </div>
       </div>
     </div>
+
+    <div id="crearnuevalista" class="modal fade" role="dialog"  tabindex="-1" >
+      <div class="modal-dialog modal-dialog-centered ">
+        <div class="modal-content" >
+          <div class="modal-header">
+            <h5>Cree una nueva lista</h5>
+ 
+          </div>
+          
+          <div class="modal-body">
+            <input type="text" id="new-article" placeholder="Asigne un nombre a su nueva lista" >
+            <input type="checkbox" placeholder="Deseo que esta sea mi lista principal">
+          </div>
+          <div class="modal-footer">
+              <button class="btn_cancelar">CANCELAR</button>
+              <button class="btn_crear">CREAR</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
 </body>
 <ng-template  #sharepage>
-    <colaborators (go_back_click)="goBackClicked($event)"> </colaborators>
+    <colaborators (go_back_click)="goBackClicked($event)" [collaboratorsUsers] = "allShoppingLists"> </colaborators>
 </ng-template >
 
 

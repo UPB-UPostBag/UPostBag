@@ -14,11 +14,15 @@ export class NavbarComponent implements OnInit {
 
   isSideNavOpened : Boolean = false;
   allShoppingLists: ShoppingList[];
+  myLists;
   myEmail = "georgeilr99@gmail.com";
+  actualUser;
 
   constructor( private authSvc: AuthService, private databaseSvc: DatabaseService,private router:Router  ) { }
 
   ngOnInit() {
+    this.actualUser = JSON.parse( localStorage.getItem('user') );
+    this.loadList();
     this.getLists();
   }
 
@@ -46,14 +50,21 @@ export class NavbarComponent implements OnInit {
   }
 
   getLists(){
-    this.databaseSvc.getAllOf("shoppingList").subscribe(res => {
+    this.databaseSvc.getAllOf("globalLists").subscribe(res => {
       this.allShoppingLists = res.map( e => {
-        return {
-          id : e.payload.doc.id,
-          ...e.payload.doc.data() as {}
-        } as ShoppingList;
+        if (this.myLists.own.includes(e.payload.doc.id)){
+          return {
+            id : e.payload.doc.id,
+            ...e.payload.doc.data() as {}
+          } as ShoppingList;
+        }
       } )
     } );  
-    //Aqui necesito mis listas, no todas las listas (filtrado)
+  }
+
+  loadList(){
+    this.databaseSvc.getDocumentOf("users",this.actualUser.email).subscribe(res => {
+      this.myLists = res;
+    } );  
   }
 }

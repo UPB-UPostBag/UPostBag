@@ -23,15 +23,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(){
     this.actualUser = JSON.parse( localStorage.getItem('user') );
-    console.log("user", this.actualUser);
-    this.getAllList();
   }
 
   login(){
     this.authSvc.onLoginGoogle();
   }
 
-  getAllList(){
+  /*getAllList(){
     this.databaseSvc.getAllOf("shoppingList").subscribe(res => {
       this.allShoppingLists = res.map( e => {
         return {
@@ -47,7 +45,7 @@ export class HomeComponent implements OnInit {
     if( confirm("Esta seguro de eliminar" + list.name ) ){
       this.databaseSvc.deleteList(list);
     }
-  }
+  }*/
 
   goBackClicked(confirmation: boolean){
       this.goBack = confirmation;

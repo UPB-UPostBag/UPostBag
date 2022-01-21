@@ -76,3 +76,29 @@ mat-sidenav {
   background-color: #303134;
   width: 200px;
 }
+
+.more_list_options:focus-within  .btns {
+  visibility: visible;
+  position: relative;
+
+}
+.btns {
+
+  visibility: hidden;
+  background-color: #303134;
+  align-items: stretch;
+  display: flex;
+  margin:auto;
+  justify-items: center;
+  
+}
+
+.more_list_options:before{
+
+  content: #121212;
+  border-style: solid;
+
+}
+
+
+
