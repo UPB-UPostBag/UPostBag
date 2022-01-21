@@ -3,7 +3,7 @@ import { ShoppingList } from 'src/app/service/models/shopping-list.model';
 import { AuthService } from '../../../service/firebase/auth.service';
 import { DatabaseService } from '../../../service/firebase/database.service';
 import { ColaboratorsComponent } from '../colaborators/colaborators.component';
-
+import { NgNavigatorShareService } from "ng-navigator-share";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -18,8 +18,10 @@ export class HomeComponent implements OnInit {
   redirectTo:Boolean=false;
   more_was_clicked:boolean= false;
   goBack:boolean=false;
-
-  constructor( private authSvc: AuthService, private databaseSvc: DatabaseService) { }
+  private ngNavigatorShareService: NgNavigatorShareService;
+  constructor( private authSvc: AuthService, private databaseSvc: DatabaseService, ngNavigatorShareService: NgNavigatorShareService) { 
+    this.ngNavigatorShareService = ngNavigatorShareService;
+  }
 
   ngOnInit(){
     this.actualUser = JSON.parse( localStorage.getItem('user') );
@@ -58,13 +60,30 @@ export class HomeComponent implements OnInit {
   }
 
 
+/*
   redirectToAppStore= function () {
     window.open('https://www.microsoft.com/es-bo/store/apps/windows');
-  };
+  };*/
 
+  share() {
+    if (!this.ngNavigatorShareService.canShare()) {
+      alert(`This service/api is not supported in your Browser`);
+      return;
+    }
 
-
-
+    this.ngNavigatorShareService
+      .share({
+        title: "Celcom LifeHub",
+        text: "hey check out our interesting features",
+        url: "https://www.celcom.com.my/life-hub/login"
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
 }
 
