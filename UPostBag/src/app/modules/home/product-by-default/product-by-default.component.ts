@@ -13,7 +13,6 @@ export class ProductByDefaultComponent implements OnInit {
   constructor( private databaseSvc: DatabaseService ) { }
 
   ngOnInit(): void {
-    //this.getAllList();
     this.loadProductsByDefault();
   }
 
@@ -21,6 +20,11 @@ export class ProductByDefaultComponent implements OnInit {
     this.databaseSvc.getDocumentOf("products","ByDefault").subscribe(res => {
       this.products = res;
     });
+  }
+
+  productSelected(item){
+    //Eliminar de mi lista y agrgar en la base de datos
+    this.databaseSvc.createOn("products","ByDefault",item)
   }
 
 }

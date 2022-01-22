@@ -19,8 +19,12 @@ export class DatabaseService {
 
   createList(list: ShoppingList){
     return new Promise<any>( (resolve,rejects) => {
-      this.angularFirestore.collection('shoppingList').add(ShoppingList).then( response => { console.log(response), error => rejects(error) } )
+      this.angularFirestore.collection('shoppingList').add(list).then( response => { console.log(response), error => rejects(error) } )
     } )
+  }
+
+  createOn(collection, uid, element){
+    this.angularFirestore.collection(collection).doc(uid).set(element, {merge:true}).then( response => { console.log(response) } );
   }
 
   updateList(list: ShoppingList, id){
