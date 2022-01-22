@@ -60,11 +60,6 @@ export class HomeComponent implements OnInit {
   }
 
 
-/*
-  redirectToAppStore= function () {
-    window.open('https://www.microsoft.com/es-bo/store/apps/windows');
-  };*/
-
   share() {
     if (!this.ngNavigatorShareService.canShare()) {
       alert(`This service/api is not supported in your Browser`);
