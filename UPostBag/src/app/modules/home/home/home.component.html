@@ -64,7 +64,7 @@
     </div>
   </footer>
 
-  <div id="modaldeinfo" class="modal fade" role="dialog" data-bs-toggle="modal" tabindex="-1">
+  <div id="modaldeinfo" class="modal fade" role="dialog" data-backdrop="static" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered ">
       <div class="modal-content">
         <div class="modal-header">
@@ -85,9 +85,9 @@
 
   <!-- Pop Up de la creacion de nueva lista -->
   <form [formGroup]="creacionLista">
-    <div id="crearnuevalista" class="modal fade" role="dialog" data-bs-toggle="modal" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered ">
-        <div class="modal-content">
+    <div id="crearnuevalista" class="modal fade" role="dialog"  tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered "  >
+        <div class="modal-content" >
           <div class="modal-header">
             <h5>Cree una nueva lista</h5>
           </div>
@@ -98,7 +98,7 @@
             que esta sea mi lista principal
           </div>
           <div class="modal-footer">
-            <button class="btn_cancelar" data-bs-toggle="modal">CANCELAR</button>
+            <button class="btn_cancelar" data-bs-toggle="modal" >CANCELAR</button>
             <button class="btn_crear" type="submit" (click)="createNewList()" >CREAR</button>
           </div>
         </div>
@@ -108,6 +108,7 @@
   <!-- Fin Pop Up creacion de lista -->
 
 </body>
+
 
 <!-- Collaborator Template -->
 <ng-template #sharepage>
