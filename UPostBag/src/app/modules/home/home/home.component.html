@@ -1,151 +1,144 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-   
-    <title>UPostBag</title>
-    <meta charset="UTF-8">
-   
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;600&display=swap" rel="stylesheet">
- 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+  <title>UPostBag</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;600&display=swap" rel="stylesheet">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body class="clickdiv"   *ngIf="!redirectTo; else sharepage" >
-    <mat-sidenav-container>
-        <mat-sidenav #sidenav>
-            <navbar [allShoppingLists] = "allShoppingLists"></navbar>
-        </mat-sidenav>
-        <mat-sidenav-content style="background-color: #121212;">
-            <header class= "header">
-                <div class="container logo-nav-container">
-                  <button  id="btn_menu" class="material-icons" (click)="sidenav.toggle()" >menu</button>
-                  <label>UPostBag Shopping List</label>
 
+<body class="clickdiv" *ngIf="!redirectTo; else sharepage">
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav>
+      <navbar (sendMainInfo)="getMainInfo($event)"></navbar>
+    </mat-sidenav>
+    <mat-sidenav-content style="background-color: #121212;">
+      <header class="header">
+        <div class="container logo-nav-container">
+          <button id="btn_menu" class="material-icons" (click)="sidenav.toggle()">menu</button>
+          <label>UPostBag Shopping List</label>
 
-                  <button id="btn_share" class="material-icons share" data-bs-toggle="modal" data-bs-target="#regmodal" >share</button>
-     
+          <button id="btn_share" class="material-icons share" data-bs-toggle="modal"
+            data-bs-target="#regmodal">share</button>
 
-                 
-                
-<!--
-            
-              -->
-                
-
-                  <div class= "agregar_colaborador"> 
-                    <button id="btn_more" class="material-icons more">more_vert</button>
-                    <div class= "add_colab_btn" >
-                      <button  id="add_colaborator"  (click)="redirectTo = !redirectTo" >
-                        <span  class="material-icons add_person">person_add_alt</span>
-                        <span class="text_button">Agregar colaborador</span>
-                      </button>
-                    </div>
-                  </div>
-                  <button mat-mini-fab icon-profile style="background-image: url({{actualUser.photoURL}}); background-repeat: no-repeat; background-size: cover; background-position: center;"></button>
-                </div>     
-              </header>
-            <main class= "main">
-                <div class="new-item-section">
-                    <button id="btn_add" class="material-icons add">add</button>
-                    <input type="text" id="new-article" >
-                  
-                </div>
-
-                <product-by-default></product-by-default>
-                
-                <div class = "colaborators-pfps-miniatures">
-                  <ul>
-                  
-                  </ul>
-                </div>
-
-                    <div class="items-list">
-                       <ul>
-                        <product-item [productsItems] = "allShoppingLists"></product-item>
-                       </ul>
-                    </div>
-            </main>
-        </mat-sidenav-content>
-    </mat-sidenav-container>
-    <footer class = "footer">
-        <div class="container">
-            <P>@UPostBag</P>
-        </div>
-    </footer>
-
-    <div id="regmodal" class="modal fade" role="dialog" data-bs-toggle="modal"   tabindex="-1" >
-      <div class="modal-dialog modal-dialog-centered ">
-        <div class="modal-content" >
-          <div class="modal-header">
-            <h5>Share</h5>
-           
-            <p><br>Lista de Shopping</p>
-
-          </div>
-          <div class="modal-body ">
-              <button>We need more information</button>
+          <div class="agregar_colaborador">
+            <button id="btn_more" class="material-icons more">more_vert</button>
+            <div class="add_colab_btn">
+              <button id="add_colaborator" (click)="redirectTo = !redirectTo">
+                <span class="material-icons add_person">person_add_alt</span>
+                <span class="text_button">Agregar colaborador</span>
+              </button>
             </div>
-          <div class="modal-body">
-            
-            <p>skdnflsdfggkdnfnfkdkl</p>
-            <label for="modal-email" class="form-label"> Apps </label>
-            <button class="facebook_btn" (click)="shareOnFacebook('http://localhost:4200/home')"></button>
           </div>
-          <div class="modal-footer">
-              <button class="apps-shared-with" (click)="redirectToAppStore()" >Get apps in store</button>
-          </div>
+          <button mat-mini-fab icon-profile
+            style="background-image: url({{actualUser.photoURL}}); background-repeat: no-repeat; background-size: cover; background-position: center;"></button>
+        </div>
+      </header>
+      <main class="main">
+        <div class="new-item-section">
+          <button id="btn_add" class="material-icons add">add</button>
+          <input type="text" id="new-article">
+
+        </div>
+
+        <product-by-default></product-by-default>
+
+        <!-- Items Section -->
+        <div class="items-list">
+          <ul>
+            <product-item [productsItems]="items"></product-item>
+          </ul>
+        </div>
+        <!-- end of Items Section -->
+
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <footer class="footer">
+    <div class="container">
+      <P>@UPostBag</P>
+    </div>
+  </footer>
+
+  <div id="regmodal" class="modal fade" role="dialog" data-bs-toggle="modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered ">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5>Share</h5>
+
+          <p><br>Lista de Shopping</p>
+
+        </div>
+        <div class="modal-body ">
+          <button>We need more information</button>
+        </div>
+        <div class="modal-body">
+
+          <p>skdnflsdfggkdnfnfkdkl</p>
+          <label for="modal-email" class="form-label"> Apps </label>
+          <button class="facebook_btn" (click)="shareOnFacebook('http://localhost:4200/home')"></button>
+        </div>
+        <div class="modal-footer">
+          <button class="apps-shared-with" (click)="redirectToAppStore()">Get apps in store</button>
         </div>
       </div>
     </div>
+  </div>
 
-    <div id="modaldeinfo" class="modal fade" role="dialog" data-bs-toggle="modal"  tabindex="-1" >
-      <div class="modal-dialog modal-dialog-centered ">
-        <div class="modal-content" >
-          <div class="modal-header">
-            <h5>Lista principal</h5>
- 
-          </div>
-          
-          <div class="modal-body">
-            <p>Cuando agrega artículos con el Asistente de Google, estos se agregan a su lista principal. Puede cambiar su lista principal en cualquier momento.</p>
-          </div>
-          <div class="modal-footer">
-              <button class="btn_entendido" data-bs-toggle="modal" >Entendido</button>
-          </div>
+  <div id="modaldeinfo" class="modal fade" role="dialog" data-bs-toggle="modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered ">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5>Lista principal</h5>
+
+        </div>
+
+        <div class="modal-body">
+          <p>Cuando agrega artículos con el Asistente de Google, estos se agregan a su lista principal. Puede cambiar su
+            lista principal en cualquier momento.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn_entendido" data-bs-toggle="modal">Entendido</button>
         </div>
       </div>
     </div>
+  </div>
 
-    <div id="crearnuevalista" class="modal fade" role="dialog" data-bs-toggle="modal"  tabindex="-1" >
+  <!-- Pop Up de la creacion de nueva lista -->
+  <form [formGroup]="creacionLista">
+    <div id="crearnuevalista" class="modal fade" role="dialog" data-bs-toggle="modal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered ">
-        <div class="modal-content" >
+        <div class="modal-content">
           <div class="modal-header">
             <h5>Cree una nueva lista</h5>
- 
           </div>
-          
           <div class="modal-body">
-            <input type="text" id="new-article" placeholder="Asigne un nombre a su nueva lista" >
-            <input type="checkbox" placeholder="Deseo que esta sea mi lista principal">
+            <input type="text" id="new-article" placeholder="Asigne un nombre a su nueva lista" formControlName="listname">
+            <br>
+            <input type="checkbox" placeholder="Deseo que esta sea mi lista principal" formControlName="isPrimary">Deseo
+            que esta sea mi lista principal
           </div>
           <div class="modal-footer">
-              <button class="btn_cancelar" data-bs-toggle="modal" >CANCELAR</button>
-              <button class="btn_crear">CREAR</button>
+            <button class="btn_cancelar" data-bs-toggle="modal">CANCELAR</button>
+            <button class="btn_crear" type="submit" (click)="createNewList()" >CREAR</button>
           </div>
         </div>
       </div>
     </div>
-
-
+  </form>
+  <!-- Fin Pop Up creacion de lista -->
 
 </body>
-<ng-template  #sharepage>
-    <colaborators (go_back_click)="goBackClicked($event)" [collaboratorsUsers] = "allShoppingLists"> </colaborators>
-</ng-template >
 
+<!-- Collaborator Template -->
+<ng-template #sharepage>
+  <colaborators (go_back_click)="goBackClicked($event)" [collaboratorsUsers]="items.collaborator"> </colaborators>
+</ng-template>
+<!-- End of Collaborators Template -->
 
 </html>

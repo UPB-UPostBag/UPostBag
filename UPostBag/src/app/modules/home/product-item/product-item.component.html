@@ -1,14 +1,23 @@
 <tbody>
-    <tr *ngFor=" let products of productsItems; let i = index">
+    <tr *ngFor=" let products of productsItems.items; let i = index">
       <td>
-        <span>
-          {{products}}
-          <br>
-          items 1
-        </span>
+        <img src="{{products.photoURL}}">
+        {{products.name}}
       </td>
       <td>
-        boton
       </td>
     </tr>
 </tbody>
+<!--
+  <div class="colaborators-pfps-miniatures">
+          <ul>
+
+          </ul>
+        </div>
+
+        <div class="items-list">
+          <ul>
+            <product-item [productsItems]="allShoppingLists"></product-item>
+          </ul>
+        </div>
+-->

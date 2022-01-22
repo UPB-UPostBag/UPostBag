@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { IsOwnerPipe } from './service/pipes/is-owner.pipe';
 
 
 const route: Routes = [
@@ -25,6 +26,7 @@ const route: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    IsOwnerPipe,
     
   ],
   imports: [

@@ -1,15 +1,12 @@
 
  body {
-    background: #121212;
+    background: #2F3033;
     color:#E8EAED;
     font-family: 'Montserrat', sans-serif;
     font-style:bold;
     padding: 0px;
     margin: 0px;
-   
-  
   }
-  
   
   .new-item-section {
     text-align: center;
@@ -80,25 +77,19 @@ mat-sidenav {
 .more_list_options:focus-within  .btns {
   visibility: visible;
   position: relative;
-
 }
 .btns {
-
   visibility: hidden;
   background-color: #303134;
   align-items: stretch;
   display: flex;
   margin:auto;
   justify-items: center;
-  
+
 }
 
 .more_list_options:before{
-
   content: #121212;
   border-style: solid;
-
 }
-
-
 

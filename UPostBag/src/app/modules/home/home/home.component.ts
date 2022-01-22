@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ShoppingList } from 'src/app/service/models/shopping-list.model';
 import { AuthService } from '../../../service/firebase/auth.service';
 import { DatabaseService } from '../../../service/firebase/database.service';
@@ -14,15 +15,25 @@ import { ColaboratorsComponent } from '../colaborators/colaborators.component';
 
 export class HomeComponent implements OnInit {
   actualUser;
-  allShoppingLists: ShoppingList[];
+  items;
   redirectTo:Boolean=false;
   more_was_clicked:boolean= false;
   goBack:boolean=false;
+  creacionLista = new FormGroup({
+    listname : new FormControl('', Validators.required ),
+    isPrimary : new FormControl('')
+  })
+  mainInfo;
+
 
   constructor( private authSvc: AuthService, private databaseSvc: DatabaseService) { }
 
+
+
   ngOnInit(){
     this.actualUser = JSON.parse( localStorage.getItem('user') );
+
+
   }
 
   login(){
@@ -62,10 +73,24 @@ export class HomeComponent implements OnInit {
     window.open('https://www.microsoft.com/es-bo/store/apps/windows');
   };
 
+  getMainInfo(mainInf){
+    console.log("main Info", mainInf);
+    this.mainInfo = mainInf;
+    this.loadItems()
+  }
 
+  loadItems(){
+    this.databaseSvc.getDocumentOf("globalLists", this.mainInfo.primaryList).subscribe(res => {
+      this.items = res;
+      console.log("items",this.items.items);
+    } );
+    
+  }
 
-
-
+  createNewList(){
+    console.log(this.creacionLista.value);
+    //call dbSvc
+  }
 }
 
 

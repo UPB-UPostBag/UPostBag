@@ -54,13 +54,12 @@
                   <tr *ngFor=" let users of collaboratorsUsers; let i = index">
                     <td>
                       <span>
-                        {{users}}
-                        <br>
-                        items 1
+                        <img src="{{users.photoURL}}">
+                        {{users.name}}
+                        {{users.isOwner}}
                       </span>
                     </td>
                     <td>
-                      boton
                     </td>
                   </tr>
                 </tbody>

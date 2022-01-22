@@ -11,19 +11,20 @@ import{Router} from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-
+  title = 'UPostBag';
   isSideNavOpened : Boolean = false;
   allShoppingLists: ShoppingList[];
-  myLists;
-  myEmail = "georgeilr99@gmail.com";
   actualUser;
+  userInfo;
+
+  @Output() change_page_click = new EventEmitter<boolean>();
+  @Output() sendMainInfo = new EventEmitter<any>();
 
   constructor( private authSvc: AuthService, private databaseSvc: DatabaseService,private router:Router  ) { }
 
   ngOnInit() {
     this.actualUser = JSON.parse( localStorage.getItem('user') );
     this.loadList();
-    this.getLists();
   }
 
   login(){
@@ -32,12 +33,7 @@ export class NavbarComponent implements OnInit {
 
   logout(){
     this.authSvc.logout();
-    
   }
-
-  title = 'UPostBag';
-
-  @Output() change_page_click = new EventEmitter<boolean>();
 
   click_Notif_More(msg:boolean){
     this.change_page_click.emit(msg);
@@ -49,10 +45,20 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  getLists(){
+  loadList(){
+    // Get the User Information
+    this.databaseSvc.getDocumentOf("users",this.actualUser.email).subscribe(res => {
+      this.userInfo = res;
+      //Send the changes to Home (parent)
+      this.sendMainInfo.emit(this.userInfo);
+    } );
+    //Get all the list that has been created
     this.databaseSvc.getAllOf("globalLists").subscribe(res => {
       this.allShoppingLists = res.map( e => {
-        if (this.myLists.own.includes(e.payload.doc.id)){
+        
+        //Compare for have only those the user own
+        if (this.userInfo.own.includes(e.payload.doc.id)){
+          
           return {
             id : e.payload.doc.id,
             ...e.payload.doc.data() as {}
@@ -62,9 +68,11 @@ export class NavbarComponent implements OnInit {
     } );  
   }
 
-  loadList(){
-    this.databaseSvc.getDocumentOf("users",this.actualUser.email).subscribe(res => {
-      this.myLists = res;
-    } );  
+  changeListName(){
+
+  }
+
+  deleteList(){
+
   }
 }

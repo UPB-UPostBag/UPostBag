@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { ColaboratorsComponent } from './colaborators/colaborators.component';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { ProductByDefaultComponent } from './product-by-default/product-by-default.component';
+import { IsOwnerPipe } from 'src/app/service/pipes/is-owner.pipe';
 
 const route: Routes = [
   {
@@ -25,7 +26,7 @@ const route: Routes = [
     NavbarComponent,
     ColaboratorsComponent,
     ProductItemComponent,
-    ProductByDefaultComponent
+    ProductByDefaultComponent,
   ],
   imports: [
     CommonModule,
