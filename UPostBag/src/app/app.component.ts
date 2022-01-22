@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-
 @Component({
   selector: 'app-root',
   template: `<router-outlet></router-outlet>`,
@@ -8,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'UPostBag';
+
 }
