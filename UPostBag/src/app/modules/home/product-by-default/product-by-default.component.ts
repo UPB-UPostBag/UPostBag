@@ -13,18 +13,14 @@ export class ProductByDefaultComponent implements OnInit {
   constructor( private databaseSvc: DatabaseService ) { }
 
   ngOnInit(): void {
-    this.getAllList();
+    //this.getAllList();
+    this.loadProductsByDefault();
   }
 
-  getAllList(){
-    this.databaseSvc.getAllOf("products").subscribe(res => {
-      this.products = res.map( e => {
-        return {
-          id : e.payload.doc.id,
-          ...e.payload.doc.data() as {}
-        } //as ShoppingList;
-      } )
-    } ); 
+  loadProductsByDefault(){
+    this.databaseSvc.getDocumentOf("products","ByDefault").subscribe(res => {
+      this.products = res;
+    });
   }
 
 }
