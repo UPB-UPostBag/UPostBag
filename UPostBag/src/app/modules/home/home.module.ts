@@ -16,7 +16,10 @@ const route: Routes = [
   },
   {
     path: "addcolaborators", component: ColaboratorsComponent
-  }
+  },
+  {
+    path: "navbar", component: NavbarComponent
+  },
 
 ];
 
