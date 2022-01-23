@@ -1,71 +1,68 @@
+body {
+  background: #121212;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-style: bold;
+  padding: 0px;
+  margin: 0px;
+}
+p {
+  color: #ffff;
+}
 
- body {
-    background: #2F3033;
-    color:#E8EAED;
-    font-family: 'Montserrat', sans-serif;
-    font-style:bold;
-    padding: 0px;
-    margin: 0px;
-  }
-  
-  .new-item-section {
-    text-align: center;
-    justify-content:center;
-    align-items:center;
-    height:10%;
-  }
-  
-  .new-item-section input {
-  background:#202124;
-  height:100%;
-  margin:0px;
-  padding-top: 0px;
-  border-right:0px;
-  border-bottom:1px solid #303134;
-  
-  
-  }
-  .add{
-  background:#202124;
-   color:#9AA0A6;
+.new-item-section {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 10%;
+}
+
+.new-item-section input {
+  background: #202124;
   height: 100%;
-  
+  margin: 0px;
+  padding-top: 0px;
+  border-right: 0px;
+  border-bottom: 1px solid #303134;
+}
+.add {
+  background: #202124;
+  color: #9aa0a6;
+  height: 100%;
+
   align-self: center;
-  border-right:0px;
-  border-left:0px;
-  border-top:0px;
-  border-bottom:1px solid #303134;
-  
-  }
-  .header {
-    background: #303134;
-    margin:auto;
-    height: 10%;
-    font-weight: bold;
-  
-  
-  }
-  .logo-nav-container{
-   align-items: stretch;
-   display: flex;
-   justify-content: space-between;
-   align-items:center;
-  
-  } 
-  
-  .more{
-    visibility: visible;
-  }
-  .logo-nav-container button {
-  border:0;
-  background:#303134;
-  color:#9AA0A6;
-  }
+  border-right: 0px;
+  border-left: 0px;
+  border-top: 0px;
+  border-bottom: 1px solid #303134;
+}
+.header {
+  background: #303134;
+  margin: auto;
+  height: 10%;
+  font-weight: bold;
+}
+.logo-nav-container {
+  align-items: stretch;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.more {
+  visibility: visible;
+}
+.logo-nav-container button {
+  border: 0;
+  background: #303134;
+  color: #9aa0a6;
+}
 mat-sidenav-container {
   height: 100%;
 }
 
-mat-sidenav, mat-sidenav-content {
+mat-sidenav,
+mat-sidenav-content {
   padding: 16px;
 }
 
@@ -73,23 +70,3 @@ mat-sidenav {
   background-color: #303134;
   width: 200px;
 }
-
-.more_list_options:focus-within  .btns {
-  visibility: visible;
-  position: relative;
-}
-.btns {
-  visibility: hidden;
-  background-color: #303134;
-  align-items: stretch;
-  display: flex;
-  margin:auto;
-  justify-items: center;
-
-}
-
-.more_list_options:before{
-  content: #121212;
-  border-style: solid;
-}
-
