@@ -15,7 +15,7 @@
 <body class="clickdiv" *ngIf="!redirectTo; else sharepage">
   <mat-sidenav-container>
     <mat-sidenav #sidenav>
-      <navbar (sendMainInfo)="getMainInfo($event)"></navbar>
+      <navbar [allShoppingLists] = "allShoppingLists" [Selected] = "positionPrimaryList" (sendSelected) = "changeSelected($event)" ></navbar>
     </mat-sidenav>
     <mat-sidenav-content style="background-color: #121212;">
       <header class="header">
@@ -44,13 +44,14 @@
           <input type="text" id="new-article">
 
         </div>
-
-        <product-by-default></product-by-default>
+        <!-- Products by Default section -->
+        <product-by-default [products]="productsByDefault"></product-by-default>
+        <!-- End Of Products by Default Section -->
 
         <!-- Items Section -->
         <div class="items-list">
           <ul>
-            <product-item [productsItems]="items"></product-item>
+            <product-item [productsItems]="allShoppingLists[positionPrimaryList].items"></product-item>
           </ul>
         </div>
         <!-- end of Items Section -->

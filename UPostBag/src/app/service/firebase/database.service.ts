@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { ShoppingList } from '../models/shopping-list.model';
+import { GlobalLists } from '../models/global-list.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class DatabaseService {
     return this.angularFirestore.collection(collection).doc(uid).valueChanges();
   } 
 
-  createList(list: ShoppingList){
+  createList(list: GlobalLists){
     return new Promise<any>( (resolve,rejects) => {
       this.angularFirestore.collection('shoppingList').add(list).then( response => { console.log(response), error => rejects(error) } )
     } )
@@ -27,11 +27,12 @@ export class DatabaseService {
     this.angularFirestore.collection(collection).doc(uid).set(element, {merge:true}).then( response => { console.log(response) } );
   }
 
-  updateList(list: ShoppingList, id){
+  updateList(list: GlobalLists, id){
     return this.angularFirestore.collection("shoppingList").doc(id).update({
       id: list.id,
-      users: list.users,
-      products: list.products
+      name: list.name,
+      collaborator: list.collaborator,
+      items: list.items
     });
   }
 

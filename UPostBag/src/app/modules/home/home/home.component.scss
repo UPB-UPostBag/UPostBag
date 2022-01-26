@@ -223,3 +223,22 @@ mat-sidenav {
   content: #121212;
   border-style: solid;
 }
+
+.items-list {
+  border: 1.5px solid #414244;
+  background: #202124;
+  color: #e8eaed;
+  width: 46%;
+  height: 70%;
+  border-right: 0px;
+  border-left: 0px;
+  border-top: 0px;
+  border-bottom: 1.5px solid #414244;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  //justify-content: center;
+  margin-top: 2%;
+  //margin-right: 2%;
+  border-radius: 6px;
+}

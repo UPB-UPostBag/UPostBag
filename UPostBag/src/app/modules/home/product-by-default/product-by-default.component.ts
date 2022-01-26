@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DatabaseService } from 'src/app/service/firebase/database.service';
 
 @Component({
@@ -8,18 +8,11 @@ import { DatabaseService } from 'src/app/service/firebase/database.service';
 })
 export class ProductByDefaultComponent implements OnInit {
 
-  products
+  @Input() products;
 
   constructor( private databaseSvc: DatabaseService ) { }
 
   ngOnInit(): void {
-    this.loadProductsByDefault();
-  }
-
-  loadProductsByDefault(){
-    this.databaseSvc.getDocumentOf("products","ByDefault").subscribe(res => {
-      this.products = res;
-    });
   }
 
   productSelected(item){

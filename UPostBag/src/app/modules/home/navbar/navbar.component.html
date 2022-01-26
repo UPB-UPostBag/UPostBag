@@ -1,32 +1,34 @@
 <p>
   Lista Primaria
   <button data-bs-toggle="modal" type="button" data-bs-target="#modaldeinfo">?</button>
-</p> 
+</p>
 <table class="table">
   <tbody>
     <tr *ngFor=" let list of allShoppingLists; let i = index">
-      <td>
-        <span>
-          {{list.name}}
-          <br>
-          items 1
-        </span>
-      </td>
-      <td>
-        <div class= "more_list_options"> 
-          <button id="btn_more" class="material-icons more">more_vert</button>
-          <div class= "btns" >
-              <button  id="btn_compartir">Compartir</button>
-              <button  id="btn_cambiar_nombre">Cambiar nombre</button>
-              <button  id="btn_borrar">Borrar</button>
+      <div (click)="listSelected(i)" [ngStyle]="{'background-color': i==Selected ? '#7babf767' : ''}">
+        <td>
+          <span>
+            {{list.name}}
+            <br>
+            items {{list.items.length}}
+          </span>
+        </td>
+        <td>
+          <div class="more_list_options">
+            <button id="btn_more" class="material-icons more">more_vert</button>
+            <div class="btns">
+              <button id="btn_compartir" (click) = "share(list)">Compartir</button>
+              <button id="btn_cambiar_nombre" (click) = "changeListName(list)">Cambiar nombre</button>
+              <button id="btn_borrar" (click) = "deleteList(list)">Borrar</button>
+            </div>
           </div>
-        </div>
 
-      </td>
+        </td>
+      </div>
     </tr>
   </tbody>
 </table>
-<button  data-bs-toggle="modal" type="button" data-bs-target="#crearnuevalista">Create New List</button>
+<button data-bs-toggle="modal" type="button" data-bs-target="#crearnuevalista">Create New List</button>
 <p>Send FeedBack</p>
 <p>Help</p>
 <p>Privacy - terms</p>
