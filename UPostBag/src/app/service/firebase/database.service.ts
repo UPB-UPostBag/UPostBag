@@ -19,7 +19,7 @@ export class DatabaseService {
 
   createList(list: GlobalLists){
     return new Promise<any>( (resolve,rejects) => {
-      this.angularFirestore.collection('shoppingList').add(list).then( response => { console.log(response), error => rejects(error) } )
+      this.angularFirestore.collection('globalLists').add(list).then( response => { console.log(response), error => rejects(error) } )
     } )
   }
 
@@ -28,7 +28,7 @@ export class DatabaseService {
   }
 
   updateList(list: GlobalLists, id){
-    return this.angularFirestore.collection("shoppingList").doc(id).update({
+    return this.angularFirestore.collection("globalLists").doc(id).update({
       id: list.id,
       name: list.name,
       collaborator: list.collaborator,
@@ -37,6 +37,6 @@ export class DatabaseService {
   }
 
   deleteList(list){
-    return this.angularFirestore.collection('shoppingList').doc(list.uid).delete();
+    return this.angularFirestore.collection('globalLists').doc(list.uid).delete();
   }
 }

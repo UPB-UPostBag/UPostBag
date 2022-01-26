@@ -54,7 +54,7 @@ export class NavbarComponent implements OnInit {
     //this.databaseSvc.deleteList(list);
   }
 
-  share(){
+  share(list){
     //
   }
 
