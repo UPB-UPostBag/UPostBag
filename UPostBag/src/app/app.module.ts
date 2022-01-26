@@ -11,6 +11,9 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
+import { MatSliderModule } from '@angular/material/slider';
+import {MatButtonModule} from '@angular/material/button';
+
 const route: Routes = [
   {
     path: "", redirectTo: "login", pathMatch: "full"
@@ -33,10 +36,12 @@ const route: Routes = [
     ReactiveFormsModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(route),
+    MatSliderModule,
     //FireBase
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     IvyCarouselModule,
+    MatButtonModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

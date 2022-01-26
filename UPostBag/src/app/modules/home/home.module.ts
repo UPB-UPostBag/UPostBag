@@ -6,6 +6,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { ColaboratorsComponent } from './colaborators/colaborators.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
 
 const route: Routes = [
   {
@@ -28,8 +32,12 @@ const route: Routes = [
     RouterModule.forChild(route),
     //Angular Material
     MatSidenavModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule,
+    MatTableModule,
+    MatIconModule,
+    MatCardModule
     
-  ]
+  ], 
 })
 export class HomeModule { }
