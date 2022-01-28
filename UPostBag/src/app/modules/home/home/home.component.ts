@@ -89,7 +89,8 @@ export class HomeComponent implements OnInit {
   }
 
   createNewList(){
-    console.log(this.creacionLista.value);
+    
+    console.log("new",this.creacionLista.value);
     //call dbSvc
   }
 

@@ -29,7 +29,7 @@ export class NavbarComponent implements OnInit {
   }
 
   login() {
-    this.authSvc.onLoginGoogle();
+    this.authSvc.onLoginGoogle();   
   }
 
   logout() {
@@ -46,12 +46,14 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  changeListName() {
-    //
+  changeListName(list, newNameList : string) {
+      list.name=newNameList;
+      this.databaseSvc.updateList(list, list.id);  //???????
+    
   }
 
   deleteList(list) {
-    //this.databaseSvc.deleteList(list);
+    this.databaseSvc.deleteList(list);
   }
 
   share(list){

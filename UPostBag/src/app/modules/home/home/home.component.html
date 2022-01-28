@@ -18,52 +18,117 @@
       <navbar [allShoppingLists] = "allShoppingLists" [Selected] = "positionPrimaryList" (sendSelected) = "changeSelected($event)" ></navbar>
     </mat-sidenav>
     <mat-sidenav-content style="background-color: #121212;">
+
+
+
       <header class="header">
+        
         <div class="container logo-nav-container">
           <button id="btn_menu" class="material-icons" (click)="sidenav.toggle()">menu</button>
-          <label>UPostBag Shopping List</label>
+          <label class="headerlabel">UPostBag Shopping List</label>
 
           <button class="material-icons share" (click)="share()">share</button>
 
           <div class="agregar_colaborador">
+
+
             <button id="btn_more" class="material-icons more">more_vert</button>
             <div class="add_colab_btn">
+              
               <button id="add_colaborator" (click)="redirectTo = !redirectTo">
                 <span class="material-icons add_person">person_add_alt</span>
                 <span class="text_button">Agregar colaborador</span>
               </button>
+
+
             </div>
+
           </div>
           <button mat-mini-fab icon-profile
             style="background-image: url({{actualUser.photoURL}}); background-repeat: no-repeat; background-size: cover; background-position: center;"></button>
         </div>
       </header>
+
+
+
+      <div class="container bodycontainer">
+
+        <div class="row">
+    
+          <div class="col-sm-1 padding-style">
+            <button mat-icon-button color="primary" >
+              <mat-icon class="icon-plus">add</mat-icon>
+            </button>
+          </div>
+          <div class="col">
+            <input class="form-control" type="text" placeholder="Agregar articulo">
+    
+          </div>
+           
+    
+        </div>
+        <br>
+          <div class="row">
+            <div class="col-sm-1 padding-style"><mat-card class="cards" style="background-color:rgb(226, 226, 226);">-</mat-card></div>
+            <div class="col padding-style" *ngFor="let data of [0,1,2,3,4,5,6,7,8]"> <mat-card class="cards">Tomate</mat-card></div>
+            <div class="col-sm-1 padding-style"><mat-card class="cards" style="background-color:rgb(226, 226, 226);">+</mat-card></div>
+          </div>
+          <br>
+    
+    
+          <table class="table">
+         
+            <tbody>
+              <tr *ngFor="let data of [0,1,2,3,5,6,7]" class="cards">
+                <th scope="row"><img src="../../../../assets/tomate.png" style="width: 30px;" alt=""></th>
+                <td>Tomate</td>
+                <button mat-icon-button color="primary" >
+                  <mat-icon class="icon-plus">check_circle_outline</mat-icon>
+                </button>
+                <button mat-icon-button color="primary" >
+                  <mat-icon class="icon-plus">restore_from_trash</mat-icon>
+                </button>
+      
+      
+              </tr>
+          
+            </tbody>
+        </table>
+   
+      </div>
+
+      <!--
+     
       <main class="main">
         <div class="new-item-section">
           <button id="btn_add" class="material-icons add">add</button>
           <input type="text" id="new-article">
 
         </div>
-        <!-- Products by Default section -->
+         Products by Default section 
         <product-by-default [products]="productsByDefault"></product-by-default>
-        <!-- End Of Products by Default Section -->
+         End Of Products by Default Section 
 
-        <!-- Items Section -->
+         Items Section 
         <div class="items-list">
           <ul>
             <product-item [productsItems]="allShoppingLists[positionPrimaryList].items"></product-item>
           </ul>
         </div>
-        <!-- end of Items Section -->
+         end of Items Section 
 
       </main>
+
+    -->
     </mat-sidenav-content>
   </mat-sidenav-container>
+
+  <!---
   <footer class="footer">
     <div class="container">
       <P>@UPostBag</P>
     </div>
-  </footer>
+  </footer>-->
 
   <div id="modaldeinfo" class="modal fade" role="dialog" data-backdrop="static" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered ">

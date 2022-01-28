@@ -12,6 +12,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IsOwnerPipe } from './service/pipes/is-owner.pipe';
 
+import { MatSliderModule } from '@angular/material/slider';
+import {MatButtonModule} from '@angular/material/button';
 
 const route: Routes = [
   {
@@ -36,9 +38,12 @@ const route: Routes = [
     ReactiveFormsModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(route),
+    MatSliderModule,
     //FireBase
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+
+    MatButtonModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
