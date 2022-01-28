@@ -17,9 +17,9 @@ export class DatabaseService {
     return this.angularFirestore.collection(collection).doc(uid).valueChanges();
   } 
 
-  createList(list: GlobalLists){
+  createList(collection, list){
     return new Promise<any>( (resolve,rejects) => {
-      this.angularFirestore.collection('globalLists').add(list).then( response => { console.log(response), error => rejects(error) } )
+      this.angularFirestore.collection(collection).add(list).then( response => { console.log(response), error => rejects(error) } )
     } )
   }
 

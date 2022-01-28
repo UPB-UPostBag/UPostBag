@@ -77,10 +77,8 @@ label {
   -webkit-flex-direction: column-reverse;
   display: flex;
   flex-direction: column-reverse;
-
   color: #fafafa;
   font-weight: bold;
-
   box-shadow: none;
 }
 
@@ -108,12 +106,10 @@ label {
   -webkit-flex-direction: column-reverse;
   display: flex;
   flex-direction: column-reverse;
-
   border-right: 0px;
   border-left: 0px;
   border-top: 0px;
   border-bottom: 1.5px solid #414244;
-
   margin-top: 2%;
   margin-right: 2%;
   border-radius: 6px;
@@ -123,20 +119,20 @@ label {
   color: #e8eaed;
   font-weight: bold;
 }
+
 .navigate_next {
   border-radius: 35px;
   height: 10%;
   width: 2.9%;
-
   color: 000000008a;
   background-color: #7baaf7;
   border: 0px;
 }
+
 .navigate_before {
   border-radius: 35px;
   height: 10%;
   width: 2.9%;
-
   color: 000000008a;
   background-color: #7baaf7;
   border: 0px;
@@ -184,15 +180,12 @@ mat-sidenav-content {
 mat-sidenav {
   background-color: #303134;
   width: 30%;
-  //color:000000008A;
-  //border: 0px;
 }
 
 .navigate_before {
   border-radius: 35px;
   height: 10%;
   width: 2.9%;
-
   color: 000000008a;
   background-color: #7baaf7;
   border: 0px;
@@ -202,6 +195,7 @@ mat-sidenav {
   visibility: visible;
   position: relative;
 }
+
 .add_colab_btn {
   visibility: hidden;
   background-color: #303134;
@@ -209,7 +203,6 @@ mat-sidenav {
   -webkit-flex-direction: column-reverse;
   display: flex;
   flex-direction: column-reverse;
-
   justify-items: center;
 }
 

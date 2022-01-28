@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
   redirectTo:Boolean=false;
   more_was_clicked:boolean= false;
   goBack:boolean=false;
+
   creacionLista = new FormGroup({
     listname : new FormControl('', Validators.required ),
     isPrimary : new FormControl('')
@@ -88,10 +89,6 @@ export class HomeComponent implements OnInit {
       }
   }
 
-  createNewList(){
-    console.log(this.creacionLista.value);
-    //call dbSvc
-  }
 
   share() {
     if (!this.ngNavigatorShareService.canShare()) {

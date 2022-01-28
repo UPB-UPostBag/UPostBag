@@ -3,6 +3,8 @@ import { DatabaseService } from 'src/app/service/firebase/database.service';
 import { GlobalLists } from 'src/app/service/models/global-list.model';
 import { AuthService } from '../../../service/firebase/auth.service';
 import { Router } from '@angular/router';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { NewListPopupComponent } from '../popups/new-list-popup/new-list-popup.component';
 
 
 @Component({
@@ -21,7 +23,11 @@ export class NavbarComponent implements OnInit {
   @Output() change_page_click = new EventEmitter<boolean>();
   @Output() sendSelected = new EventEmitter<any>();
 
-  constructor(private authSvc: AuthService, private databaseSvc: DatabaseService, private router: Router) { }
+  constructor(
+    private authSvc: AuthService, 
+    private databaseSvc: DatabaseService, 
+    private router: Router,
+    private dialog: MatDialog) { }
 
   ngOnInit() {
     this.actualUser = JSON.parse(localStorage.getItem('user'));
@@ -56,6 +62,18 @@ export class NavbarComponent implements OnInit {
 
   share(list){
     //
+  }
+
+  createNewList(){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    this.dialog.open(NewListPopupComponent,{
+      data: {
+        dataKey: this.actualUser
+      }
+    })
   }
 
   listSelected(index){
