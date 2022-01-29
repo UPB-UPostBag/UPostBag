@@ -5,11 +5,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
 import { ColaboratorsComponent } from './colaborators/colaborators.component';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { ProductByDefaultComponent } from './product-by-default/product-by-default.component';
-import { IsOwnerPipe } from 'src/app/service/pipes/is-owner.pipe';
-import {MatInputModule} from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
@@ -36,6 +37,8 @@ const route: Routes = [
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(route),
     //Angular Material
     MatSidenavModule,

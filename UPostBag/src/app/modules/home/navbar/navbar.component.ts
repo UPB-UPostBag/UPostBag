@@ -21,7 +21,10 @@ export class NavbarComponent implements OnInit {
   @Output() change_page_click = new EventEmitter<boolean>();
   @Output() sendSelected = new EventEmitter<any>();
 
-  constructor(private authSvc: AuthService, private databaseSvc: DatabaseService, private router: Router) { }
+  constructor(
+    private authSvc: AuthService, 
+    private databaseSvc: DatabaseService, 
+    private router: Router) { }
 
   ngOnInit() {
     this.actualUser = JSON.parse(localStorage.getItem('user'));
@@ -58,6 +61,10 @@ export class NavbarComponent implements OnInit {
 
   share(list){
     //
+  }
+
+  createNewList(){
+    
   }
 
   listSelected(index){

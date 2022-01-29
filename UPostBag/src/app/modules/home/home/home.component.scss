@@ -120,10 +120,8 @@ body {
   -webkit-flex-direction: column-reverse;
   display: flex;
   flex-direction: column-reverse;
-
   color: #fafafa;
   font-weight: bold;
-
   box-shadow: none;
 }
 
@@ -151,12 +149,10 @@ body {
   -webkit-flex-direction: column-reverse;
   display: flex;
   flex-direction: column-reverse;
-
   border-right: 0px;
   border-left: 0px;
   border-top: 0px;
   border-bottom: 1.5px solid #414244;
-
   margin-top: 2%;
   margin-right: 2%;
   border-radius: 6px;
@@ -166,20 +162,20 @@ body {
   color: #e8eaed;
   font-weight: bold;
 }
+
 .navigate_next {
   border-radius: 35px;
   height: 10%;
   width: 2.9%;
-
   color: 000000008a;
   background-color: #7baaf7;
   border: 0px;
 }
+
 .navigate_before {
   border-radius: 35px;
   height: 10%;
   width: 2.9%;
-
   color: 000000008a;
   background-color: #7baaf7;
   border: 0px;
@@ -227,20 +223,13 @@ mat-sidenav, mat-sidenav-content {
 mat-sidenav {
 
   background-color: #303134;
-  
-  
-  max-width:400px;
-  width: 80%;
- 
-  //color:000000008A;
-  //border: 0px;
+  width: 30%;
 }
 
 .navigate_before {
   border-radius: 35px;
   height: 10%;
   width: 2.9%;
-
   color: 000000008a;
   background-color: #7baaf7;
   border: 0px;
@@ -264,6 +253,7 @@ mat-sidenav {
   flex-direction: column-reverse;
   right: 22.6%;
  
+  justify-items: center;
 
   position: fixed;
 
