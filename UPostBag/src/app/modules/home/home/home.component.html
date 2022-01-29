@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <title>UPostBag</title>
   <meta charset="UTF-8">
@@ -11,20 +10,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
 <body class="clickdiv" *ngIf="!redirectTo; else sharepage">
   <mat-sidenav-container>
     <mat-sidenav #sidenav>
-      <navbar [allShoppingLists] = "allShoppingLists" [Selected] = "positionPrimaryList" (sendSelected) = "changeSelected($event)" ></navbar>
+      <navbar [allShoppingLists]="allShoppingLists" [Selected]="positionPrimaryList"
+        (sendSelected)="changeSelected($event)"></navbar>
     </mat-sidenav>
     <mat-sidenav-content style="background-color: #121212;">
       <header class="header">
         <div class="container logo-nav-container">
           <button id="btn_menu" class="material-icons" (click)="sidenav.toggle()">menu</button>
-          <label>UPostBag Shopping List</label>
-
+          <label class="headerlabel">UPostBag Shopping List</label>
           <button class="material-icons share" (click)="share()">share</button>
-
           <div class="agregar_colaborador">
             <button id="btn_more" class="material-icons more">more_vert</button>
             <div class="add_colab_btn">
@@ -38,32 +35,60 @@
             style="background-image: url({{actualUser.photoURL}}); background-repeat: no-repeat; background-size: cover; background-position: center;"></button>
         </div>
       </header>
+      <div class="container bodycontainer">
+        <div class="row">
+          <div class="col-sm-1 padding-style">
+            <button mat-icon-button color="primary">
+              <mat-icon class="icon-plus">add</mat-icon>
+            </button>
+          </div>
+          <div class="col">
+            <input class="form-control" type="text" placeholder="Agregar articulo">
+          </div>
+        </div>
+
+        <!-- Products by default Section -->
+        <product-by-default [products] = "productsByDefault"></product-by-default>
+        <!-- End of Products by default section -->
+        
+        <!-- List Elements Srection
+        [productsItems]="allShoppingLists[positionPrimaryList].items" -->
+        <product-item></product-item>
+        <!-- End of List Elements Section -->
+      </div>
+
+      <!--
+     
       <main class="main">
         <div class="new-item-section">
           <button id="btn_add" class="material-icons add">add</button>
           <input type="text" id="new-article">
 
         </div>
-        <!-- Products by Default section -->
+         Products by Default section 
         <product-by-default [products]="productsByDefault"></product-by-default>
-        <!-- End Of Products by Default Section -->
+         End Of Products by Default Section 
 
-        <!-- Items Section -->
+         Items Section 
         <div class="items-list">
           <ul>
             <product-item [productsItems]="allShoppingLists[positionPrimaryList].items"></product-item>
           </ul>
         </div>
-        <!-- end of Items Section -->
+         end of Items Section 
 
       </main>
+
+    -->
     </mat-sidenav-content>
   </mat-sidenav-container>
+
+  <!---
   <footer class="footer">
     <div class="container">
       <P>@UPostBag</P>
     </div>
-  </footer>
+  </footer>-->
 
   <div id="modaldeinfo" class="modal fade" role="dialog" data-backdrop="static" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered ">
@@ -84,29 +109,30 @@
     </div>
   </div>
 
-  <!-- Pop Up de la creacion de nueva lista >
+  <!-- Pop Up de la creacion de nueva lista -->
   <form [formGroup]="creacionLista">
-    <div id="crearnuevalista" class="modal fade" role="dialog"  tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered"  >
-        <div class="modal-content" >
+    <div id="crearnuevalista" class="modal fade" role="dialog" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
           <div class="modal-header">
             <h5>Cree una nueva lista</h5>
           </div>
           <div class="modal-body">
-            <input type="text" id="new-article" placeholder="Asigne un nombre a su nueva lista" formControlName="listname">
+            <input type="text" id="new-article" placeholder="Asigne un nombre a su nueva lista"
+              formControlName="listname">
             <br>
             <input type="checkbox" placeholder="Deseo que esta sea mi lista principal" formControlName="isPrimary">Deseo
             que esta sea mi lista principal
           </div>
           <div class="modal-footer">
             <button type="button" class="btn_cancelarCrearList" data-bs-toggle="modal">CANCELAR</button>
-            <button class="btn_crear" type="submit" (click)="createNewList()" >CREAR</button>
+            <button class="btn_crear" type="submit" (click)="createNewList()">CREAR</button>
           </div>
         </div>
       </div>
     </div>
   </form>
-   Fin Pop Up creacion de lista -->
+  <!-- Fin Pop Up creacion de lista -->
 
 </body>
 

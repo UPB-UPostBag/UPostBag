@@ -3,8 +3,6 @@ import { DatabaseService } from 'src/app/service/firebase/database.service';
 import { GlobalLists } from 'src/app/service/models/global-list.model';
 import { AuthService } from '../../../service/firebase/auth.service';
 import { Router } from '@angular/router';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { NewListPopupComponent } from '../popups/new-list-popup/new-list-popup.component';
 
 
 @Component({
@@ -26,8 +24,7 @@ export class NavbarComponent implements OnInit {
   constructor(
     private authSvc: AuthService, 
     private databaseSvc: DatabaseService, 
-    private router: Router,
-    private dialog: MatDialog) { }
+    private router: Router) { }
 
   ngOnInit() {
     this.actualUser = JSON.parse(localStorage.getItem('user'));
@@ -35,7 +32,7 @@ export class NavbarComponent implements OnInit {
   }
 
   login() {
-    this.authSvc.onLoginGoogle();
+    this.authSvc.onLoginGoogle();   
   }
 
   logout() {
@@ -52,12 +49,14 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  changeListName() {
-    //
+  changeListName(list, newNameList : string) {
+      list.name=newNameList;
+      this.databaseSvc.updateList(list, list.id);  //???????
+    
   }
 
   deleteList(list) {
-    //this.databaseSvc.deleteList(list);
+    this.databaseSvc.deleteList(list);
   }
 
   share(list){
@@ -65,15 +64,7 @@ export class NavbarComponent implements OnInit {
   }
 
   createNewList(){
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = "60%";
-    this.dialog.open(NewListPopupComponent,{
-      data: {
-        dataKey: this.actualUser
-      }
-    })
+    
   }
 
   listSelected(index){

@@ -9,10 +9,11 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ColaboratorsComponent } from './colaborators/colaborators.component';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { ProductByDefaultComponent } from './product-by-default/product-by-default.component';
-import { IsOwnerPipe } from 'src/app/service/pipes/is-owner.pipe';
-import { NewListPopupComponent } from './popups/new-list-popup/new-list-popup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { MatInputModule } from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
 const route: Routes = [
   {
     path: "", component: HomeComponent
@@ -33,7 +34,6 @@ const route: Routes = [
     ColaboratorsComponent,
     ProductItemComponent,
     ProductByDefaultComponent,
-    NewListPopupComponent,
   ],
   imports: [
     CommonModule,
@@ -43,8 +43,11 @@ const route: Routes = [
     //Angular Material
     MatSidenavModule,
     MatButtonModule,
-    MatDialogModule
-  ],
-  entryComponents : [NewListPopupComponent]
+    MatInputModule,
+    MatTableModule,
+    MatIconModule,
+    MatCardModule
+    
+  ]
 })
 export class HomeModule { }
