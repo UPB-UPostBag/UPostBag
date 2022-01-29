@@ -1,7 +1,7 @@
-<p>
-  Lista Primaria
-  <button data-bs-toggle="modal" type="button" data-bs-target="#modaldeinfo">?</button>
-</p>
+<header>
+  Lista Principal
+  <button data-bs-toggle="modal" type="button" data-bs-target="#modaldeinfo" class="material-icons outlined">help</button>
+</header>
 <table class="table">
   <tbody>
     <tr *ngFor=" let list of allShoppingLists; let i = index">
@@ -28,7 +28,12 @@
     </tr>
   </tbody>
 </table>
-<button data-bs-toggle="modal" type="button" data-bs-target="#crearnuevalista">Create New List</button>
-<p>Send FeedBack</p>
-<p>Help</p>
-<p>Privacy - terms</p>
+<div class="newlistsection">
+  <button id="createnewlistbtn" data-bs-toggle="modal" type="button" data-bs-target="#crearnuevalista">CREATE A NEW LIST</button>
+</div>
+
+<div class="footer">
+  <p>Send FeedBack</p>
+  <p>Help</p>
+  <p>Privacy - terms</p>
+</div>

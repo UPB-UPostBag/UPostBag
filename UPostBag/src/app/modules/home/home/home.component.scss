@@ -7,15 +7,18 @@ body {
   width: 100%;
   margin: 0px;
 }
+
 .headerlabel {
   color: #ffff;
 
   font-weight: bold;
   margin:auto;
+
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-align: right;
 }
 
 .mat-sidenav-content {
@@ -39,18 +42,20 @@ body {
 
 .logo-nav-container {
  
-  display: flex;
-  align-items: center;
   
   margin: 0px;
   width: 100%; 
   height: 100%;
   padding: 1%;
   flex-direction: row;
-  align-items: center;
+ 
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  justify-content: space-around;
+ 
+  display: flex;
+  align-items: center;
+
+ 
 
   
  
@@ -61,12 +66,15 @@ body {
   border: 0px;
   background: #303134;
   color: #9aa0a6;
-  margin: 0%;
+  margin-right: 1.5%;
+  margin-left: 1.5%;
+
 }
 .more {
   padding-top: 20%;
   text-align: end;
 }
+
 .new-item-section {
   padding-top: 3%;
   text-align: center;
@@ -217,7 +225,7 @@ mat-sidenav, mat-sidenav-content {
 }
 
 mat-sidenav {
-  padding:2%;
+
   background-color: #303134;
   
   
@@ -241,25 +249,29 @@ mat-sidenav {
 .agregar_colaborador:focus-within .add_colab_btn {
   visibility: visible;
   position: fixed;
-
+  z-index: 99 !important; 
+  border-radius: 12px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.24);
  
 }
 
 .add_colab_btn {
   visibility: hidden;
-  background-color: #303134;
-
+  background-color: #2f3033;
+  padding: 15px;
   -webkit-flex-direction: column-reverse;
   display: flex;
   flex-direction: column-reverse;
+  right: 22.6%;
+ 
 
   position: fixed;
-  
+
+ 
 }
 .add_colaborator{
   position: absolute;
-  
-  margin:auto;
+
 }
 
 
@@ -275,7 +287,6 @@ mat-sidenav {
   border-style: solid;
   
 }
-
 .items-list {
   border: 1.5px solid #414244;
   background: #202124;
@@ -328,4 +339,3 @@ width: 100%;
   margin-top: 0%;
 }
 
-  

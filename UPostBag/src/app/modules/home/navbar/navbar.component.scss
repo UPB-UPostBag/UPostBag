@@ -1,62 +1,47 @@
 body {
-  background: #121212;
-  color: #fff;
+  color: #92989d;
+  background-color: #303134;
+  margin: 0px;
+}
+header{
+  color: #92989d;
   font-family: "Montserrat", sans-serif;
-  font-style: bold;
-  padding: 0px;
-  margin: 0px;
-}
-p {
-  color: #ffff;
-}
-
-.new-item-section {
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  height: 10%;
-}
-
-.new-item-section input {
-  background: #202124;
-  height: 100%;
-  margin: 0px;
-  padding-top: 0px;
-  border-right: 0px;
-  border-bottom: 1px solid #303134;
-}
-.add {
-  background: #202124;
-  color: #9aa0a6;
-  height: 100%;
-
-  align-self: center;
-  border-right: 0px;
-  border-left: 0px;
-  border-top: 0px;
-  border-bottom: 1px solid #303134;
-}
-.header {
-  background: #303134;
-  margin: auto;
-  height: 10%;
   font-weight: bold;
-}
-.logo-nav-container {
-  align-items: stretch;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding-top:9%;
+  padding-left:7%;
 }
 
-.more {
-  visibility: visible;
+.table button{
+  color: #92989d;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  padding-top:9%;
+  padding-left:7%;
 }
-.logo-nav-container button {
-  border: 0;
-  background: #303134;
+
+.outlined{
+  background-color: #303134;
+  border: 0px;
   color: #9aa0a6;
+  vertical-align: bottom;
 }
+.newlistsection{
+  padding: 10px;
+  border-top: 1px solid #474747;
+  border-bottom: 1px solid #474747;
+}
+.newlistsection button{ 
+  margin: auto;
+  display:block;
+  color: #78a6f0;
+  background-color: #303134;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  justify-self: center;
+ 
+  border: 0px;
+}
+
 mat-sidenav-container {
   height: 100%;
 }
@@ -67,6 +52,6 @@ mat-sidenav-content {
 }
 
 mat-sidenav {
-  background-color: #303134;
+  background-color: #92989d;
   width: 200px;
 }
