@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { BrowserModule, HammerModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -6,10 +7,11 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { ColaboratorsComponent } from './colaborators/colaborators.component';
-import {MatInputModule} from '@angular/material/input';
-import {MatTableModule} from '@angular/material/table';
-import {MatIconModule} from '@angular/material/icon';
-import {MatCardModule} from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { NgSwipeToDeleteModule } from 'ng-swipe-to-delete';
 
 const route: Routes = [
   {
@@ -36,8 +38,12 @@ const route: Routes = [
     MatInputModule,
     MatTableModule,
     MatIconModule,
-    MatCardModule
-    
-  ], 
+    MatCardModule,
+    HammerModule,
+    BrowserModule,
+    NgSwipeToDeleteModule
+
+
+  ],
 })
 export class HomeModule { }

@@ -64,7 +64,7 @@
     <colaborators (go_back_click)="goBackClicked($event)"> </colaborators>
 </ng-template >
 </html> -->
-<!--<div class="navbarComponent">
+<div class="navbarComponent">
   <div style="margin-right: 5rem;">
     
     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" class="svg-inline--fa fa-bars fa-w-14"
@@ -94,85 +94,15 @@
       
     </div>
 
-  </div>
   
-</div>
-<div> <input type="text">-->
-
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="#">Features</a>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
-          <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
-        </svg>
-        <a class="nav-item nav-link" href="#"></a>
-        <a class="nav-item nav-link disabled" href="#"></a>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-          <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-        </svg>
-        <button mat-mini-fab icon-proflie style="background-image: url({{actualUser.photoURL}}); background-repeat: no-repeat; background-size: cover; background-position: center;"></button>
-      </div>
-    </div>
-  </nav>
-
-  <br>
-  <div class="container">
-
-    <div class="row">
-
-      <div class="col-sm-1 padding-style">
-        <button mat-icon-button color="primary" >
-          <mat-icon class="icon-plus">add</mat-icon>
-        </button>
-      </div>
-      <div class="col">
-        <input class="form-control" type="text" placeholder="Agregar articulo">
-
-      </div>
-       
-
-    </div>
-    <br>
- 
-
-   
-
-   
-
-    <div class="row">
-      <div class="col-sm-1 padding-style">
-      <mat-card class="cards" style="background-color:rgb(226, 226, 226);">-</mat-card></div>
-      
-      <div class="col padding-style" *ngFor="let data of [0,1,2,3,4,5,6,7,8]"> <mat-card class="cards">Tomate</mat-card></div>
-      <div class="col-sm-1 padding-style">
-        <mat-card class="cards" style="background-color:rgb(226, 226, 226);">+</mat-card></div>
-    </div>
-<br>
 
 
-    <table class="table">
-     
-      <tbody>
-        <tr *ngFor="let data of [0,1,2,3,5,6,7]" class="cards">
-          <th scope="row"><img src="../../../../assets/tomate.png" style="width: 30px;" alt=""></th>
-          <td>Tomate</td>
-          <button mat-icon-button color="primary" >
-            <mat-icon class="icon-plus">check_circle_outline</mat-icon>
-          </button>
-          <button mat-icon-button color="primary" >
-            <mat-icon class="icon-plus">restore_from_trash</mat-icon>
-          </button>
-
-
-        </tr>
-     
-      </tbody>
-    </table>
 
   </div>
+</div>
+
+<ng-swipe-to-delete
+
+[items]='outgoingdata'
+(deletedItem)='deletedItem($event)'
+></ng-swipe-to-delete>
