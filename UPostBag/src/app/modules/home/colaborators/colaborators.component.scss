@@ -1,27 +1,18 @@
-body {
+html {
   background: #121212;
   color: #e8eaed;
   font-family: "Montserrat", sans-serif;
   font-style: bold;
   padding: 0px;
+  width: 100%;
   margin: 0px;
 }
 
-.new-item-section {
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  height: 10%;
-}
-
-.new-item-section input {
-  background: #202124;
-  height: 100%;
-  margin: 0px;
-  padding-top: 0px;
-  border-right: 0px;
-  border-bottom: 1px solid #303134;
-  font-family: "Montserrat", sans-serif;
+.main{
+  
+  max-width: 600px;
+  background-color: #202124;
+  margin: auto;
 }
 .add {
   background: #202124;
@@ -36,16 +27,40 @@ body {
 }
 .header {
   background: #303134;
-  margin: 50px;
-  height: 10%;
-  font-weight: bold;
+  margin: auto;
+  padding-right: 16px;
+  padding-left: 16px;
+  width: 100%;
+  overflow: hidden;
+  height: 64px;
+  padding: 1%;
+  vertical-align:middle; 
+
 }
+
 .logo-nav-container {
-  align-items: stretch;
+
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  height: 100%;
+  flex-direction: row;
+ justify-content: stretch;
+
+  justify-items: center;
+
 }
+.logo-nav-container label{
+  color: #ffff;
+  font-weight: bold;
+  margin:auto;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: right;
+  
+  font-size: 18px;
+}
+
 .btn_guardar {
   font-family: "Montserrat", sans-serif;
 }
@@ -54,38 +69,45 @@ body {
   border: 0;
   background: #303134;
   color: #9aa0a6;
-
   font-weight: bold;
 }
 
 .new-colab-section {
-  padding-top: 3%;
+
   text-align: center;
   justify-content: center;
   display: flex;
   height: 120px;
+
+ 
 }
 
 .new-colab-section input {
   background: #202124;
-  height: 100%;
-  width: 40%;
-  margin: 0px;
+ 
+  width: 100%;
+  max-height:56px ;
+  display: flex;
+
   border-left: 0px;
   border-right: 0px;
   border-bottom: 1.5px solid #414244;
   color: #fafafa;
+  padding-right: 10px;
   font-weight: bold;
-
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   box-shadow: none;
 }
 
 .person_add {
   background: #202124;
   color: #9aa0a6;
-  height: 100%;
-  width: 6%;
-  padding: 0px;
+  max-height:56px ;
+  
+  padding-left: 20px;
+  padding-right: 20px;
   border-right: 0px;
   border-left: 0px;
   border-top: 0px;
@@ -95,28 +117,37 @@ body {
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
   background: #202124;
-  width: 46%;
-  height: 30%;
+  width: 100%;
+  min-height: 30%;
   margin: auto;
   border-right: 0px;
   border-left: 0px;
   border-top: 0px;
   border-bottom: 1.5px solid #414244;
+}
+.shared-with-list ul{
+  padding: 15px;
 }
 
 .suggestions {
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
   background: #202124;
-  width: 46%;
-  height: 30%;
-  margin: auto;
+  width: 100%;
+  vertical-align: top;
   border-right: 0px;
   border-left: 0px;
   border-top: 0px;
   border-bottom: 1.5px solid #414244;
+  flex-direction: column;
 }
+.suggestions label{
 
+padding:15px;
+}
+.suggestions .suggested-contacts{
+  min-height: 30%;
+}
 .suggesteds button {
   margin-top: 2%;
   margin-right: 2%;
