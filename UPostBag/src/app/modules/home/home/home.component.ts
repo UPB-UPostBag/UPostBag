@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   productsByDefault;
   productsItem;
   positionList = 0;
-
+  lists;
   redirectTo: Boolean = false;
   more_was_clicked: boolean = false;
   goBack: boolean = false;
@@ -64,16 +64,20 @@ export class HomeComponent implements OnInit {
         }
       }
       )
+      this.allShoppingLists = this.allShoppingLists.filter(e => e != undefined);
       this.productsItem = this.allShoppingLists[this.positionList].items;
+
     });
 
 
-    
+
     // Get the global Products List
     this.databaseSvc.getDocumentOf(environment.firebaseCollections.productsCollection, environment.firebaseCollections.defaultProducts).subscribe(res => {
       this.productsByDefault = res;
       this.productsByDefault = this.productsByDefault.item;
-      console.log("by Default", this.productsByDefault)
+      console.log("by Default", this.productsByDefault);
+      console.log("producst", this.productsItem);
+      console.log("alllist", this.allShoppingLists);
       this.isLoad = true;
     });
   }
