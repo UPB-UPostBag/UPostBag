@@ -10,15 +10,14 @@ body {
 
 .headerlabel {
   color: #ffff;
-
   font-weight: bold;
   margin:auto;
-
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   text-align: right;
+  font-size: 18px;
 }
 
 .mat-sidenav-content {
@@ -96,11 +95,12 @@ body {
   box-shadow: none;
 }
 
+
 .add {
   background: #202124;
   color: #9aa0a6;
   height: 100%;
-  width: 60%;
+  
   padding: 0px;
   border-right: 0px;
   border-left: 0px;
@@ -125,17 +125,7 @@ body {
   box-shadow: none;
 }
 
-.add {
-  background: #202124;
-  color: #9aa0a6;
-  height: 100%;
-  width: 6%;
-  padding: 0px;
-  border-right: 0px;
-  border-left: 0px;
-  border-top: 0px;
-  border-bottom: 1.5px solid #414244;
-}
+
 
 .suggestion-items {
   background: #202124;
@@ -223,7 +213,8 @@ mat-sidenav, mat-sidenav-content {
 mat-sidenav {
 
   background-color: #303134;
-  width: 30%;
+  max-width: 400px;
+  width: 80%;
 }
 
 .navigate_before {
@@ -247,28 +238,35 @@ mat-sidenav {
 .add_colab_btn {
   visibility: hidden;
   background-color: #2f3033;
-  padding: 15px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 8px;
+  padding-right: 8px;
   -webkit-flex-direction: column-reverse;
   display: flex;
   flex-direction: column-reverse;
-  right: 22.6%;
+  min-width: 243px;
  
+  right:24%;
   justify-items: center;
 
-  position: fixed;
+  position: absolute;
 
- 
+
 }
 .add_colaborator{
   position: absolute;
 
 }
-
-
+.add_person{
+  vertical-align: bottom;
+  padding-right: 15px;
+}
 .text_button {
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
   justify-self: center;
+  font-size: 14px;
 
 }
 
@@ -327,6 +325,109 @@ width: 100%;
 }
 .icon-plus{
   margin-top: 0%;
+}
+.modal-body{
+  border-top: 0 none;
+  border-bottom: 0 none;
+}
+.modal-footer{
+  border-top: 0 none;
+}
+.modal-header{
+  border-bottom: 0 none;
+}
+.modaldeinfo{
+  border-radius: 15px;
+ 
+
+}
+
+.modal-content{
+  padding:15px;
+  min-width: 648px;
+  box-shadow: #ffff;
+  -webkit-box-shadow: none;
+}
+.modal-header h5{
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Roboto,Helvetica-neue,sans-serif;
+  letter-spacing: normal;
+  color:#e0e2e5;
+}
+.modal-body p{
+  font-family: Roboto,Helvetica-neue,sans-serif;
+  letter-spacing: .2px;
+  font-size: 14px;
+  color:#9aa0a6;
+}
+
+.modal-body input {
+  font-family: Roboto,Helvetica-neue,sans-serif ;
+  font-size: 14px;
+
+  letter-spacing: .2px;
+  margin-bottom: 20px;
+  background-color: #202124; ///
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+ 
+}
+
+
+.modal-body .new-article {
+  width: 100%;
+
+}
+
+/*
+.new-article input:required {
+  border-color: #800000;
+  border-width: 3px;
+}
+.new-article input:required:invalid {
+  border-color: #c00000;
+}
+
+.crearnuevalista .modal-body input{
+  border-bottom: 0 none;
+  flex-direction: row;
+
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+
+}
+
+*/
+
+
+
+.modal-body label{
+  font-family: Roboto,Helvetica-neue,sans-serif ;
+  font-size: 15px;
+  padding-left:12px;
+  align-self: flex-start;
+
+  letter-spacing: .2;
+  vertical-align: top;
+
+}
+
+.modal-footer button{
+  color: #78a6f0;
+  background-color: #202124;
+  font-weight: bold;
+  border:0px;
+}
+.modal-content{
+  background-color: #202124;
+
+  
+}
+input:invalid:required  {
+///
+  
 }
 
 //Loading SCSS

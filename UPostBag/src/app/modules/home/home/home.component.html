@@ -111,7 +111,7 @@
               lista principal en cualquier momento.</p>
           </div>
           <div class="modal-footer">
-            <button class="btn_entendido" data-bs-toggle="modal">Entendido</button>
+            <button class="btn_entendido" data-bs-toggle="modal">ENTENDIDO</button>
           </div>
         </div>
       </div>
@@ -123,26 +123,62 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h5>Cree una nueva lista</h5>
+              <h5>Lista principal</h5>
+
             </div>
+
             <div class="modal-body">
-              <input type="text" id="new-article" placeholder="Asigne un nombre a su nueva lista"
-                formControlName="listname">
-              <br>
-              <input type="checkbox" placeholder="Deseo que esta sea mi lista principal"
-                formControlName="isPrimary">Deseo
-              que esta sea mi lista principal
+              <p>Cuando agrega artículos con el Asistente de Google, estos se agregan a su lista principal. Puede
+                cambiar
+                su
+                lista principal en cualquier momento.</p>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn_cancelarCrearList" data-bs-toggle="modal">CANCELAR</button>
-              <button class="btn_crear" type="submit" (click)="createNewList()">CREAR</button>
+              <button class="btn_entendido" data-bs-toggle="modal">Entendido</button>
+            </div>
+            <form>
+              <input type="text" class="new-article" placeholder="Asigne un nombre a su nueva lista"
+                formControlName="listname" required>
+
+              <input id="inputCheckbox" type="checkbox" formControlName="isPrimary">
+              <label for="inputCheckbox">Deseo que esta sea mi lista principal</label>
+
+              <div class="modal-footer">
+                <button type="button" class="btn_cancelarCrearList" data-bs-toggle="modal">CANCELAR</button>
+                <button class="btn_crear" type="submit" (click)="createNewList()">CREAR</button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Pop Up de la creacion de nueva lista -->
+      <form [formGroup]="creacionLista">
+        <div id="crearnuevalista" class="modal fade" role="dialog" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5>Cree una nueva lista</h5>
+              </div>
+              <div class="modal-body">
+                <input type="text" id="new-article" placeholder="Asigne un nombre a su nueva lista"
+                  formControlName="listname">
+                <br>
+                <input type="checkbox" placeholder="Deseo que esta sea mi lista principal"
+                  formControlName="isPrimary">Deseo
+                que esta sea mi lista principal
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn_cancelarCrearList" data-bs-toggle="modal">CANCELAR</button>
+                <button class="btn_crear" type="submit" (click)="createNewList()">CREAR</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </form>
+      <!-- Fin Pop Up creacion de lista -->
     </form>
-    <!-- Fin Pop Up creacion de lista -->
-
   </body>
 
 

@@ -24,9 +24,10 @@ header{
   border: 0px;
   color: #9aa0a6;
   vertical-align: bottom;
+  font-family: 'Material Icons' !important;
 }
 .newlistsection{
-  padding: 10px;
+  padding: 15px;
   border-top: 1px solid #474747;
   border-bottom: 1px solid #474747;
 }
@@ -53,5 +54,46 @@ mat-sidenav-content {
 
 mat-sidenav {
   background-color: #92989d;
-  width: 200px;
+  width: 200px;//????
 }
+.more_list_options:focus-within .btns{
+  visibility: visible;
+  position: fixed;
+ 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.24);
+ 
+}
+.btns{
+  visibility: hidden;
+  background-color: #2f3034;
+  padding: 10px;
+  -webkit-flex-direction: column-reverse;
+  display: flex;
+  border-radius: 12px;
+  flex-direction: column-reverse;
+
+  left: 10%;
+
+  position: fixed;
+}
+.btns button{
+  background-color: #2f3034;
+  border: 0px;
+  color:#fff;  
+  text-align: left;
+  font-size: 14px;
+  letter-spacing: small;
+  padding: 12px;
+}
+.more_list_options:before{
+  content: #121212;
+  border-style: solid;
+}
+
+.footer{
+  color: #9aa0a6;
+  font-size: 14px;
+  font-family: Roboto,Helvetica Neue,sans-serif;
+  padding:20px;
+}
+

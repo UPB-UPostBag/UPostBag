@@ -66,6 +66,8 @@ export class HomeComponent implements OnInit {
       )
       this.productsItem = this.allShoppingLists[this.positionList].items;
     });
+
+
     
     // Get the global Products List
     this.databaseSvc.getDocumentOf(environment.firebaseCollections.productsCollection, environment.firebaseCollections.defaultProducts).subscribe(res => {
