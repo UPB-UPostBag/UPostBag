@@ -1,20 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalLists } from 'src/app/service/models/global-list.model';
+import { GlobalLists } from '../../../service/models/global-list.model';
 import { AuthService } from '../../../service/firebase/auth.service';
 import { DatabaseService } from '../../../service/firebase/database.service';
-import { ColaboratorsComponent } from '../colaborators/colaborators.component';
 import { NgNavigatorShareService } from "ng-navigator-share";
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ProductsByDefault } from 'src/app/service/models/products-by-default.=model';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
 
-
-
 export class HomeComponent implements OnInit {
+  isLoad: Boolean = false;
   actualUser;
   items;
   allShoppingLists;
@@ -39,20 +37,20 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.actualUser = JSON.parse(localStorage.getItem('user'));
+    this.isLoad = false;
+    this.actualUser = JSON.parse(localStorage.getItem(environment.localUser));
     this.loadInformation();
   }
 
   loadInformation() {
     // Get the User Information
-    this.databaseSvc.getDocumentOf("users", this.actualUser.email).subscribe(res => {
+    this.databaseSvc.getDocumentOf(environment.firebaseCollections.allUsers, this.actualUser.email).subscribe(res => {
       this.userInfo = res;
       console.log("user info:", this.userInfo);
-      //Send the changes to Home (parent)
-      //this.sendMainInfo.emit(this.userInfo);
     });
+
     //Get all the list that has been created
-    this.databaseSvc.getAllOf("globalLists").subscribe(res => {
+    this.databaseSvc.getAllOf(environment.firebaseCollections.Lists).subscribe(res => {
       this.allShoppingLists = res.map(e => {
         //Compare for have only those the user own
         if (this.userInfo.own.includes(e.payload.doc.id)) {
@@ -66,14 +64,15 @@ export class HomeComponent implements OnInit {
         }
       }
       )
-
       this.productsItem = this.allShoppingLists[this.positionList].items;
     });
+    
     // Get the global Products List
-    this.databaseSvc.getDocumentOf("products", "ByDefault").subscribe(res => {
+    this.databaseSvc.getDocumentOf(environment.firebaseCollections.productsCollection, environment.firebaseCollections.defaultProducts).subscribe(res => {
       this.productsByDefault = res;
       this.productsByDefault = this.productsByDefault.item;
       console.log("by Default", this.productsByDefault)
+      this.isLoad = true;
     });
   }
 
@@ -95,7 +94,7 @@ export class HomeComponent implements OnInit {
     //call dbSvc
     if (this.creacionLista.valid) {
       //added on Global list db
-      var newList = this.databaseSvc.createList('globalLists', this.actualUser.email, this.creacionLista.value.isPrimary, {
+      var newList = this.databaseSvc.createList(environment.firebaseCollections.Lists, this.actualUser.email, this.creacionLista.value.isPrimary, {
         collaborator: [{
           email: this.actualUser.email,
           isOwner: true,
@@ -134,8 +133,11 @@ export class HomeComponent implements OnInit {
     this.productsItem = this.allShoppingLists[this.positionList].items;
   }
 
+  yes() {
+    this.isLoad = true;
+    console.log(this.isLoad);
+  }
 }
-
 
 
 

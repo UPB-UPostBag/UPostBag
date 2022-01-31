@@ -64,7 +64,7 @@ export class NavbarComponent implements OnInit {
   }
 
   createNewList(){
-    
+    console.log("log", this.allShoppingLists) 
   }
 
   listSelected(index){

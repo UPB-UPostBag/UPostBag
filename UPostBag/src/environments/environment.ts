@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  localUser:"user",
   firebaseConfig : {
    apiKey: "AIzaSyBhvTLFOUCGNLN2xrejCgAWjnZwKj4LOyI",
    authDomain: "upb-upostbag.firebaseapp.com",
@@ -14,7 +15,8 @@ export const environment = {
    measurementId: "G-NBK5ZMJ9FW"
   },
   firebaseCollections:{
-    defaultProducts: "",
+    productsCollection:"products",
+    defaultProducts: "ByDefault",
     Lists: "globalLists",
     allUsers: "users"
   }

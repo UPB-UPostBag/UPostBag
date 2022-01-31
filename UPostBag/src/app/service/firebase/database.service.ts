@@ -41,6 +41,7 @@ export class DatabaseService {
     return this.angularFirestore.collection(environment.firebaseCollections.Lists).doc(list.uid).delete();
   }
 
+
   changeNameList(uid: string, newName: string){
     this.angularFirestore.collection(environment.firebaseCollections.Lists).doc(uid).update({
       name: newName
