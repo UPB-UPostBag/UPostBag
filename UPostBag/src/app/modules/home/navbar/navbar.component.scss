@@ -5,10 +5,10 @@ body {
 }
 header{
   color: #92989d;
-  font-family: "Montserrat", sans-serif;
+  font-family: Roboto,Helvetica-neue,sans-serif;
   font-weight: bold;
   padding-top:9%;
-  padding-left:7%;
+  padding-left: 20px;;
 }
 
 .table button{
@@ -107,6 +107,13 @@ mat-sidenav {
   max-height: 52px;
   
 }
+
+.table{
+  margin-left: 0;
+padding-left: 0;
+}
+
+
 table{
 min-width: 100%;
 max-height: 52px;
@@ -114,6 +121,7 @@ max-height: 52px;
 .list-descrip{
   display: grid;
   grid-template-columns: 4fr 4fr;
+ 
 }
 .more_list_options .outlined{
 
@@ -126,5 +134,9 @@ max-height: 52px;
   max-height: 52px;
 }
 
+td{
+  border-bottom: 1px solid #464646;
+  border-top: none;
 
+}
 
