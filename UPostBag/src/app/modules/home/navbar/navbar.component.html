@@ -6,7 +6,7 @@
   <tbody>
     <tr *ngFor=" let list of allShoppingLists; let i = index">
       <div *ngIf="list.id == userInfo.primaryList">
-      <div (click)="listSelected(i)"  [ngStyle]="{'background-color': i==Selected ? '#7babf767' : ''}">
+      <div class="list-descrip" (click)="listSelected(i)"  [ngStyle]="{'background-color': i==Selected ? '#7babf767' : ''}">
         <td>
           <span>
             {{list.name}}
@@ -15,7 +15,11 @@
           </span>
         </td>
         <td>
+          <button class="prof-icon" mat-mini-fab icon-profile
+          style="background-image: url({{actualUser.photoURL}}); background-repeat: no-repeat; background-size: cover; background-position: center;"></button>  
+         
           <div class="more_list_options">
+           
             <button id="btn_more" class="material-icons outlined">more_vert</button>
             <div class="btns">
               <button id="btn_borrar" (click) = "deleteList(list)">Borrar</button>
@@ -36,7 +40,7 @@
     <tbody>
       <tr *ngFor=" let list of allShoppingLists; let i = index">
         <div *ngIf="list.id != userInfo.primaryList">
-        <div (click)="listSelected(i)" [ngStyle]="{'background-color': i==Selected ? '#7babf767' : ''}">
+        <div class="list-descrip" (click)="listSelected(i)" [ngStyle]="{'background-color': i==Selected ? '#7babf767' : ''}">
           <td>
             <span>
               {{list.name}}
@@ -45,7 +49,11 @@
             </span>
           </td>
           <td>
+            
+            <button class="prof-icon" mat-mini-fab icon-profile
+            style="background-image: url({{actualUser.photoURL}}); background-repeat: no-repeat; background-size: cover; background-position: center;"></button>
             <div class="more_list_options">
+              
               <button id="btn_more" class="material-icons outlined">more_vert</button>
               <div class="btns">
                 <button id="btn_borrar" (click) = "deleteList(list)">Borrar</button>

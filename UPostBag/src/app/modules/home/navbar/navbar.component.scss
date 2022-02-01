@@ -56,10 +56,13 @@ mat-sidenav {
   background-color: #92989d;
   width: 200px;//????
 }
+
+
+
 .more_list_options:focus-within .btns{
   visibility: visible;
   position: fixed;
- 
+  z-index: 99 !important; 
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.24);
  
 }
@@ -96,4 +99,32 @@ mat-sidenav {
   font-family: Roboto,Helvetica Neue,sans-serif;
   padding:20px;
 }
+
+ td span{
+  color:#9aa0a6;
+  font-weight: bold;
+  width: 100%;
+  max-height: 52px;
+  
+}
+table{
+min-width: 100%;
+max-height: 52px;
+}  
+.list-descrip{
+  display: grid;
+  grid-template-columns: 4fr 4fr;
+}
+.more_list_options .outlined{
+
+  float: right;
+  
+}
+
+.prof-icon{
+  float:left;
+  max-height: 52px;
+}
+
+
 
