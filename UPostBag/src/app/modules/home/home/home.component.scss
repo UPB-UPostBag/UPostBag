@@ -365,16 +365,31 @@ width: 100%;
 }
 .modaldeinfo{
   border-radius: 15px;
- 
 
 }
 
-.modal-content{
+
+.modalCambiarNombre .modal-content {
+  max-width: 340px;
+  box-shadow: #ffff;
+  -webkit-box-shadow: none;
+  padding: 15px;
+
+
+}
+.modaldeinfo .modal-content {
   padding:15px;
   min-width: 648px;
   box-shadow: #ffff;
   -webkit-box-shadow: none;
 }
+.crearnuevalista .modal-content{
+  padding:15px;
+  min-width: 648px;
+  box-shadow: #ffff;
+  -webkit-box-shadow: none;
+}
+
 .modal-header h5{
   font-size: 20px;
   font-weight: bold;
@@ -403,7 +418,7 @@ width: 100%;
  
 }
 
-.modal-body.new-name{
+.modalCambiarNombre .modal-body .new-name{
   width: 100%;
 }
 .modal-body .new-article {
