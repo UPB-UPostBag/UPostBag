@@ -151,7 +151,7 @@
 
               <div class="modal-footer">
                 <button type="button" class="btn_cancelarCrearList" data-bs-toggle="modal">CANCELAR</button>
-                <button class="btn_crear" type="submit" (click)="createNewList()">CREAR</button>
+                <button [disabled]="listName == ''" [ngStyle]="{'color': listName == '' ? '#535252' : ''}" class="btn_crear" type="submit" (click)="createNewList()">CREAR</button>
               </div>
             </form>
         </div>
@@ -167,7 +167,7 @@
 
   <!-- Collaborator Template -->
   <ng-template #sharepage>
-    <colaborators (go_back_click)="goBackClicked($event)" [collaboratorsUsers]="items.collaborator"> </colaborators>
+    <colaborators (go_back_click)="goBackClicked($event)" [collaboratorsUsers]="allShoppingLists[this.positionList].collaborator"> </colaborators>
   </ng-template>
   <!-- End of Collaborators Template -->
 

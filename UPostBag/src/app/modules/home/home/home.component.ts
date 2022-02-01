@@ -160,10 +160,10 @@ export class HomeComponent implements OnInit {
   }
 
   ItemSelected(item){
-    var newProducts: [any];
+    var newProducts = [];
     this.productsByDefault.forEach(element => {
       if(element.name != item.name && element.photoURL != item.photoURL){
-        newProducts.push(item);
+        newProducts.push(element);
       }
     });
     this.productsByDefault = newProducts;

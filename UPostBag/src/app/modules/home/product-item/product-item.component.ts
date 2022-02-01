@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ProductItemComponent implements OnInit {
   @Input() productsItems;
+  total : number = 0;
 
   constructor() { }
 
@@ -17,5 +18,10 @@ export class ProductItemComponent implements OnInit {
     console.log("items", this.productsItems);
   }
   
-
+  getTotalPrice(){
+    this.total=0;
+    this.productsItems.forEach(element => {
+      this.total += element.price;
+    });
+  }
 }
