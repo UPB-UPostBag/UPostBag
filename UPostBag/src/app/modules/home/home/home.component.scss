@@ -1,5 +1,5 @@
 body {
-  background: #121212;
+  background-color: #121212;
   color: #e8eaed;
   font-family: "Montserrat", sans-serif;
   font-style: bold;
@@ -7,6 +7,33 @@ body {
   width: 100%;
   margin: 0px;
 }
+
+html {
+  background-color: #121212;
+}
+.loader {
+
+  background-color: #121212;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  margin: -76px 0 0 -76px;
+  border: 16px solid #2f3033; /* Light grey */
+  border-top: 16px solid #78a6f0; /* Blue */
+ 
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  animation: spin 2.5s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
 
 .headerlabel {
   color: #ffff;
@@ -369,13 +396,16 @@ width: 100%;
   letter-spacing: .2px;
   margin-bottom: 20px;
   background-color: #202124; ///
+  color:#fff;
   box-sizing: border-box;
   border: none;
   outline: none;
  
 }
 
-
+.modal-body.new-name{
+  width: 100%;
+}
 .modal-body .new-article {
   width: 100%;
 
