@@ -14,6 +14,8 @@ import { element } from 'protractor';
 
 export class HomeComponent implements OnInit {
   isLoad: Boolean = false;
+  listToChange;
+  listName;
   actualUser;
   items;
   allShoppingLists;
@@ -148,9 +150,14 @@ export class HomeComponent implements OnInit {
     this.productsItem = this.allShoppingLists[this.positionList].items;
   }
 
-  yes() {
-    this.isLoad = true;
-    console.log(this.isLoad);
+  changeListName(list){
+    this.listName = list.name;
+    this.listToChange = list;
+  }
+
+  changeDBlistName(){
+    this.databaseSvc.changeNameList(this.listToChange.id,this.listName);
+    //close pop up
   }
 }
 
