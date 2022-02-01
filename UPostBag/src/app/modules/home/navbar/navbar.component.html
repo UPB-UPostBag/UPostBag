@@ -1,35 +1,31 @@
 <header>
   Lista Principal
-  <button data-bs-toggle="modal" type="button" data-bs-target="#modaldeinfo"
-    class="material-icons outlined">help</button>
+  <button data-bs-toggle="modal" type="button" data-bs-target="#modaldeinfo" class="material-icons outlined">help</button>
 </header>
 <table class="table">
   <tbody>
     <tr *ngFor=" let list of allShoppingLists; let i = index">
       <div *ngIf="list.id == userInfo.primaryList">
-        <div (click)="listSelected(i)" [ngStyle]="{'background-color': i==Selected ? '#7babf767' : ''}">
-          <td>
-            <span>
-              {{list.name}}
-              <br>
-              items {{list.items.length}}
-            </span>
-          </td>
-          <td>
-            <button class="prof-icon" mat-mini-fab icon-profile
-                style="background-image: url({{actualUser.photoURL}}); background-repeat: no-repeat; background-size: cover; background-position: center;"></button>
-            <div class="more_list_options">
-              <button id="btn_more" class="material-icons outlined">more_vert</button>
-              <div class="btns">
-                <button id="btn_borrar" (click)="deleteList(list)">Borrar</button>
-                <button id="btn_cambiar_nombre" (click)="changeListName(list)" data-bs-toggle="modal"
-                  data-bs-target="#modalCambiarNombre">Cambiar nombre</button>
-                <button id="btn_compartir" (click)="share(list)">Compartir</button>
-              </div>
+      <div (click)="listSelected(i)"  [ngStyle]="{'background-color': i==Selected ? '#7babf767' : ''}">
+        <td>
+          <span>
+            {{list.name}}
+            <br>
+            items {{list.items.length}}
+          </span>
+        </td>
+        <td>
+          <div class="more_list_options">
+            <button id="btn_more" class="material-icons outlined">more_vert</button>
+            <div class="btns">
+              <button id="btn_borrar" (click)="deleteList(list)">Borrar</button>
+              <button id="btn_cambiar_nombre" (click)="changeListName(list)"  data-bs-toggle="modal" data-bs-target="#modalCambiarNombre">Cambiar nombre</button>
+              <button id="btn_compartir" (click)="share(list)">Compartir</button>
             </div>
+          </div>
           </td>
         </div>
-      </div>
+    </div>
     </tr>
   </tbody>
 </table>
@@ -40,33 +36,31 @@
     <tbody>
       <tr *ngFor=" let list of allShoppingLists; let i = index">
         <div *ngIf="list.id != userInfo.primaryList">
-          <div class="list-descrip" (click)="listSelected(i)"
-            [ngStyle]="{'background-color': i==Selected ? '#7babf767' : ''}">
-            <td>
-              <span>
-                {{list.name}}
-                <br>
-                items {{list.items.length}}
-              </span>
-            </td>
-            <td>
-
-              <button class="prof-icon" mat-mini-fab icon-profile
-                style="background-image: url({{actualUser.photoURL}}); background-repeat: no-repeat; background-size: cover; background-position: center;"></button>
-              <div class="more_list_options">
-
-                <button id="btn_more" class="material-icons outlined">more_vert</button>
-                <div class="btns">
-                  <button id="btn_borrar" (click)="deleteList(list)">Borrar</button>
-                  <button id="btn_cambiar_nombre" (click)="changeListName(list)" data-bs-toggle="modal"
-                    data-bs-target="#modalCambiarNombre">Cambiar nombre</button>
-                  <button id="btn_compartir" (click)="share(list)">Compartir</button>
-                  <button id="btn_primary" (click)="makePrimaryList(list)">Hacer Principal</button>
-                </div>
+        <div class="list-descrip" (click)="listSelected(i)" [ngStyle]="{'background-color': i==Selected ? '#7babf767' : ''}">
+          <td>
+            <span>
+              {{list.name}}
+              <br>
+              items {{list.items.length}}
+            </span>
+          </td>
+          <td>
+            
+            <button class="prof-icon" mat-mini-fab icon-profile
+            style="background-image: url({{actualUser.photoURL}}); background-repeat: no-repeat; background-size: cover; background-position: center;"></button>
+            <div class="more_list_options">
+              
+              <button id="btn_more" class="material-icons outlined">more_vert</button>
+              <div class="btns">
+                <button id="btn_borrar" (click)="deleteList(list)">Borrar</button>
+                <button id="btn_cambiar_nombre" (click)="changeListName(list)" data-bs-toggle="modal" data-bs-target="#modalCambiarNombre">Cambiar nombre</button>
+                <button id="btn_compartir" (click)="share(list)">Compartir</button>
+                <button  id="btn_primary" (click)="makePrimaryList(list)">Hacer Principal</button>
               </div>
-            </td>
-          </div>
+            </div>
+          </td>
         </div>
+      </div>
       </tr>
     </tbody>
   </table>
@@ -74,8 +68,7 @@
 
 
 <div class="newlistsection">
-  <button id="createnewlistbtn" data-bs-toggle="modal" type="button" data-bs-target="#crearnuevalista"
-    (click)="createNewList()">CREATE A NEW LIST</button>
+  <button id="createnewlistbtn" data-bs-toggle="modal" type="button" data-bs-target="#crearnuevalista" (click)="createNewList()" >CREATE A NEW LIST</button>
 </div>
 
 <div class="footer">
