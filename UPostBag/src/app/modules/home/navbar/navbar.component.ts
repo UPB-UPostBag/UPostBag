@@ -54,24 +54,23 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  changeListName(list, newNameList : string) {
-
-      //list.name=newNameList;
-      //this.databaseSvc.updateList(list, list.id); 
-  }
-
+  
   deleteList(list) {
     /* TODO delete users own and collab
     this.databaseSvc.deleteList(list.id);
     window.location.reload();*/
   }
-
+  
   share(list){
     //
   }
-
+  
   createNewList(){
     console.log("log", this.allShoppingLists) 
+  }
+  
+  changeListName(list) {
+    this.sendNewNameList.emit(list)
   }
 
   listSelected(index){

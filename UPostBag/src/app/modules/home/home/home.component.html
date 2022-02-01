@@ -27,8 +27,13 @@
   <body class="clickdiv" *ngIf="!redirectTo; else sharepage">
     <mat-sidenav-container>
       <mat-sidenav #sidenav>
-        <navbar [allShoppingLists]="allShoppingLists" [Selected]="positionPrimaryList" [userInfo] = "userInfo"
-          (sendSelected)="changeSelected($event)"></navbar>
+        <navbar 
+        [allShoppingLists]="allShoppingLists" 
+        [Selected]="positionPrimaryList" 
+        [userInfo] = "userInfo"
+        (sendSelected)="changeSelected($event)"
+        (sendNewNameList)="changeListName($event)"
+        ></navbar>
       </mat-sidenav>
       <mat-sidenav-content style="background-color: #121212;">
         <header class="header">
@@ -65,11 +70,10 @@
           <product-by-default [products]="productsByDefault"></product-by-default>
           <!-- End of Products by default section -->
 
-          <!-- List Elements Srection
-        [productsItems]="allShoppingLists[positionPrimaryList].items" -->
+          <!-- List Elements Section -->
           <product-item [productsItems]="productsItem"></product-item>
           <!-- End of List Elements Section -->
-          
+
         </div>
       </mat-sidenav-content>
     </mat-sidenav-container>
@@ -93,8 +97,7 @@
     </div>
   </div>
   
-
-
+  <!-- Pop Up de Cambio de Nombre para la Lista  -->
   <div id="modalCambiarNombre" class="modal fade  modalCambiarNombre" role="dialog" data-backdrop="static" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered ">
       <div class="modal-content">
@@ -104,17 +107,16 @@
         </div>
 
         <div class="modal-body">
-          <input type="text" class="new-name" placeholder="Nombre de la lista" value="Aqui va el nombre de la lista"
-              formControlName="listname"  required>
+          <input type="text" class="new-name" placeholder="Nombre de la lista" [(ngModel)]="listName" required>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn_cancelarCrearList" data-bs-toggle="modal">CANCELAR</button>
-          <button class="btn_crear" type="submit" >Aceptar</button> <!--(click)="" con el metodo para cambiar el nombre de la lista-->
-        </div>
+          <button [disabled]="listName == ''" [ngStyle]="{'color': listName == '' ? '#535252' : ''}" class="btn_crear" type="submit" data-bs-toggle="modal" (click)="changeDBlistName()">Aceptar</button>
+          </div>
       </div>
     </div>
   </div>
-
+  <!--Fin del Pop Up de Cambio de Nombre para la Lista  -->
 
   <!-- Pop Up de la creacion de nueva lista -->
   <form [formGroup]="creacionLista">
