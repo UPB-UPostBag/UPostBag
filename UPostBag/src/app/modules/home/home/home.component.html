@@ -27,7 +27,7 @@
   <body class="clickdiv" *ngIf="!redirectTo; else sharepage">
     <mat-sidenav-container>
       <mat-sidenav #sidenav>
-        <navbar [allShoppingLists]="allShoppingLists" [Selected]="positionPrimaryList"
+        <navbar [allShoppingLists]="allShoppingLists" [Selected]="positionPrimaryList" [userInfo] = "userInfo"
           (sendSelected)="changeSelected($event)"></navbar>
       </mat-sidenav>
       <mat-sidenav-content style="background-color: #121212;">

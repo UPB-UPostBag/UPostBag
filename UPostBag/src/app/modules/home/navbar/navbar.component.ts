@@ -15,8 +15,8 @@ export class NavbarComponent implements OnInit {
   isSideNavOpened: Boolean = false;
   @Input() allShoppingLists: GlobalLists[];
   @Input() Selected;
+  @Input() userInfo;
   actualUser;
-  userInfo;
 
   @Output() change_page_click = new EventEmitter<boolean>();
   @Output() sendSelected = new EventEmitter<any>();
@@ -28,7 +28,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.actualUser = JSON.parse(localStorage.getItem('user'));
-    //this.loadList();
+    console.log("test",this.userInfo)
   }
 
   login() {
