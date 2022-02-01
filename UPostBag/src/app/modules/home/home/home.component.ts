@@ -5,6 +5,7 @@ import { DatabaseService } from '../../../service/firebase/database.service';
 import { NgNavigatorShareService } from "ng-navigator-share";
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
+import { element } from 'protractor';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -52,11 +53,7 @@ export class HomeComponent implements OnInit {
     //Get all the list that has been created
     this.databaseSvc.getAllOf(environment.firebaseCollections.Lists).subscribe(res => {
       this.allShoppingLists = res.map(e => {
-        //Compare for have only those the user own
         if (this.userInfo.own.includes(e.payload.doc.id)) {
-          if (this.userInfo.primaryList != e.payload.doc.id) {
-            this.positionList += 1;
-          }
           return {
             id: e.payload.doc.id,
             ...e.payload.doc.data() as {}
@@ -64,7 +61,19 @@ export class HomeComponent implements OnInit {
         }
       }
       )
+      //Filter for have only those the user own
       this.allShoppingLists = this.allShoppingLists.filter(e => e != undefined);
+      this.allShoppingLists.map( element => {
+        var founded = false;
+        if( element.id != this.userInfo.primaryList && !founded ){
+          this.positionList += 1;
+        }else {
+          console.log("user id", this.userInfo)
+          console.log("id",element.id)
+          founded = true;
+        }
+      });
+      console.log("position",this.positionList)
       this.productsItem = this.allShoppingLists[this.positionList].items;
 
     });

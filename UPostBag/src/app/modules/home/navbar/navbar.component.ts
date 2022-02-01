@@ -2,7 +2,6 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';;
 import { DatabaseService } from 'src/app/service/firebase/database.service';
 import { GlobalLists } from 'src/app/service/models/global-list.model';
 import { AuthService } from '../../../service/firebase/auth.service';
-import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,17 +17,23 @@ export class NavbarComponent implements OnInit {
   @Input() userInfo;
   actualUser;
 
-  @Output() change_page_click = new EventEmitter<boolean>();
   @Output() sendSelected = new EventEmitter<any>();
+  @Output() sendNewNameList = new EventEmitter<any>();
+  @Output() change_page_click = new EventEmitter<boolean>();
 
   constructor(
     private authSvc: AuthService, 
-    private databaseSvc: DatabaseService, 
-    private router: Router) { }
+    private databaseSvc: DatabaseService) { }
 
   ngOnInit() {
     this.actualUser = JSON.parse(localStorage.getItem('user'));
-    console.log("test",this.userInfo)
+    for (let index = 0; index < this.allShoppingLists.length; index++) {
+      if(this.allShoppingLists[index].id == this.userInfo.primaryList){
+        this.Selected = index;
+        this.listSelected(index);
+        break;
+      }
+    }
   }
 
   login() {
@@ -50,13 +55,15 @@ export class NavbarComponent implements OnInit {
   }
 
   changeListName(list, newNameList : string) {
-      list.name=newNameList;
-      this.databaseSvc.updateList(list, list.id);  //???????
-    
+
+      //list.name=newNameList;
+      //this.databaseSvc.updateList(list, list.id); 
   }
 
   deleteList(list) {
-    this.databaseSvc.deleteList(list);
+    /* TODO delete users own and collab
+    this.databaseSvc.deleteList(list.id);
+    window.location.reload();*/
   }
 
   share(list){
@@ -68,9 +75,12 @@ export class NavbarComponent implements OnInit {
   }
 
   listSelected(index){
-    console.log("index", index);
     this.Selected = index;
     //send to home (father)
     this.sendSelected.emit(index);
+  }
+
+  makePrimaryList(list){
+    this.databaseSvc.changePrimaryList(list.id,this.actualUser.email);
   }
 }
