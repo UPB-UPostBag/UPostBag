@@ -14,7 +14,6 @@ export class ProductByDefaultComponent implements OnInit {
   constructor( private databaseSvc: DatabaseService ) { }
 
   ngOnInit(): void {
-    console.log("Init",this.products);
   }
 
   productSelected(item){

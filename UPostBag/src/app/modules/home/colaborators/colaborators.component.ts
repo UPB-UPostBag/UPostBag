@@ -7,8 +7,10 @@ import { Location } from '@angular/common'
   styleUrls: ['./colaborators.component.scss']
 })
 export class ColaboratorsComponent implements OnInit {
+  emailCollab;
   @Input() collaboratorsUsers;
-
+  @Output() save = new EventEmitter<any>();
+  @Output() sendEmail = new EventEmitter<any>();
   constructor(private location: Location) { }
 
   ngOnInit(): void {
@@ -23,5 +25,14 @@ export class ColaboratorsComponent implements OnInit {
     this.location.back();
   }
 
+  addCollab(){
+    if(this.emailCollab.includes("@")){
+      console.log("send");
+      this.sendEmail.emit(this.emailCollab);
+    }
+  }
 
+  saveChanges(){
+    this.save.emit();
+  }
 }

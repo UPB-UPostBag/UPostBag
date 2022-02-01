@@ -134,7 +134,7 @@
   <!--Fin del Pop Up de Cambio de Nombre para la Lista  -->
 
   <!-- Pop Up de la creacion de nueva lista -->
-  <form [formGroup]="creacionLista">
+  <form>
     <div id="crearnuevalista" class="modal fade crearnuevalista" role="dialog" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -142,7 +142,7 @@
             <h5>Cree una nueva lista</h5>
           </div>
           <div class="modal-body">
-            <form >
+            <form [formGroup]="creacionLista">
               <input type="text" class="new-article" placeholder="Asigne un nombre a su nueva lista"
               formControlName="listname"  required>
            
@@ -167,7 +167,11 @@
 
   <!-- Collaborator Template -->
   <ng-template #sharepage>
-    <colaborators (go_back_click)="goBackClicked($event)" [collaboratorsUsers]="allShoppingLists[this.positionList].collaborator"> </colaborators>
+    <colaborators 
+    (sendEmail)="addCollab($event)"
+    (save)="saveChanges()"
+    (go_back_click)="goBackClicked($event)" 
+    [collaboratorsUsers]="allShoppingLists[this.positionList].collaborator"> </colaborators>
   </ng-template>
   <!-- End of Collaborators Template -->
 

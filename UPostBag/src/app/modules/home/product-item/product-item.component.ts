@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ProductItemComponent implements OnInit {
   @Input() productsItems;
   total : number = 0;
-
+  status: number = 0;
   constructor() { }
 
   ngOnInit(): void {
@@ -23,5 +23,9 @@ export class ProductItemComponent implements OnInit {
     this.productsItems.forEach(element => {
       this.total += element.price;
     });
+  }
+
+  changeView(){
+
   }
 }

@@ -49,7 +49,6 @@ export class HomeComponent implements OnInit {
     // Get the User Information
     this.databaseSvc.getDocumentOf(environment.firebaseCollections.allUsers, this.actualUser.email).subscribe(res => {
       this.userInfo = res;
-      console.log("user info:", this.userInfo);
     });
 
     //Get all the list that has been created
@@ -70,14 +69,10 @@ export class HomeComponent implements OnInit {
         if( element.id != this.userInfo.primaryList && !founded ){
           this.positionList += 1;
         }else {
-          console.log("user id", this.userInfo)
-          console.log("id",element.id)
           founded = true;
         }
       });
-      console.log("position",this.positionList)
       this.productsItem = this.allShoppingLists[this.positionList].items;
-
     });
 
 
@@ -86,9 +81,6 @@ export class HomeComponent implements OnInit {
     this.databaseSvc.getDocumentOf(environment.firebaseCollections.productsCollection, environment.firebaseCollections.defaultProducts).subscribe(res => {
       this.productsByDefault = res;
       this.productsByDefault = this.productsByDefault.item;
-      console.log("by Default", this.productsByDefault);
-      console.log("producst", this.productsItem);
-      console.log("alllist", this.allShoppingLists);
       this.isLoad = true;
     });
   }
@@ -168,5 +160,20 @@ export class HomeComponent implements OnInit {
     });
     this.productsByDefault = newProducts;
     this.productsItem.push(item);
+  }
+
+  addCollab(userEmail){
+    var collabs: [any]= this.allShoppingLists[this.positionList].collaborator;
+    collabs.push({
+      email: userEmail,
+      isOwner: false,
+      name:"",
+      photoURL:"",
+    });
+    console.log("id",this.allShoppingLists[this.positionList].collaborator);
+  }
+
+  saveChanges(){
+    this.databaseSvc.updateList(this.allShoppingLists[this.positionList],this.allShoppingLists[this.positionList].id);
   }
 }

@@ -1,20 +1,23 @@
 <table class="table">
   <tbody>
-      <tr *ngFor="let data of productsItems" class="cards">
-        <th scope="row"><img src="{{data.photoURL}}" style="width: 30px;" alt=""></th>
-        <td>{{data.name}}</td>
-        <td>{{data.price}}Bs</td>
-        <button mat-icon-button color="primary">
-          <mat-icon class="icon-plus">check_circle_outline</mat-icon>
-        </button>
-        <button mat-icon-button color="primary">
-          <mat-icon class="icon-plus">restore_from_trash</mat-icon>
-        </button>
-      </tr>
-      <tr>
-        <td>Precio total: </td>
-        {{getTotalPrice()}}
-        <td>{{total}} Bs</td>
-      </tr>
+    <tr *ngFor="let data of productsItems" class="cards">
+      <th scope="row">
+        <img src="{{data.photoURL}}" style="width: 30px;" alt="{{data.name}}">
+      </th>
+      <td>{{data.name}}</td>
+      <td>{{data.price}}Bs</td>
+      <button mat-icon-button color="primary">
+        <mat-icon class="icon-plus">check_circle_outline</mat-icon>
+      </button>
+      <button mat-icon-button color="primary">
+        <mat-icon class="icon-plus">restore_from_trash</mat-icon>
+      </button>
+    </tr>
+
+    <tr>
+      <td>Precio total: </td>
+      {{getTotalPrice()}}
+      <td>{{total}} Bs</td>
+    </tr>
   </tbody>
 </table>
