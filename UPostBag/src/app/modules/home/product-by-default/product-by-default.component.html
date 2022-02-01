@@ -1,10 +1,10 @@
 <br>
 <div class="row">
     <div class="col-sm-1 padding-style">
-        <mat-card class="cards" style="background-color:rgb(226, 226, 226);" (click)="showItems()">-</mat-card>
+        <mat-card class="cards" style="background-color:rgb(226, 226, 226);">-</mat-card>
     </div>
     <div class="col padding-style" *ngFor="let data of products">
-        <mat-card class="cards">
+        <mat-card class="cards" (click)="showItem(data)">
             <img src="{{data.photoURL}}">
             {{data.name}}
         </mat-card>

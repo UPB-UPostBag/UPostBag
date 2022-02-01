@@ -67,7 +67,9 @@
           </div>
 
           <!-- Products by default Section -->
-          <product-by-default [products]="productsByDefault"></product-by-default>
+          <product-by-default 
+          [products]="productsByDefault"
+          (sendItemSelected)="ItemSelected($event)"></product-by-default>
           <!-- End of Products by default section -->
 
           <!-- List Elements Section -->

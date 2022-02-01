@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DatabaseService } from 'src/app/service/firebase/database.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { DatabaseService } from 'src/app/service/firebase/database.service';
 export class ProductByDefaultComponent implements OnInit {
 
   @Input() products;
+  @Output() sendItemSelected = new EventEmitter<any>();
 
   constructor( private databaseSvc: DatabaseService ) { }
 
@@ -23,7 +24,7 @@ export class ProductByDefaultComponent implements OnInit {
    // this.databaseSvc.createOn("products","ByDefault",item)
   }
 
-  showItems(){
-    console.log("products", this.products);
+  showItem(item){
+    this.sendItemSelected.emit(item);
   }
 }

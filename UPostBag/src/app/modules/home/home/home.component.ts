@@ -158,10 +158,15 @@ export class HomeComponent implements OnInit {
   changeDBlistName(){
     this.databaseSvc.changeNameList(this.listToChange.id,this.listName);
   }
+
+  ItemSelected(item){
+    var newProducts: [any];
+    this.productsByDefault.forEach(element => {
+      if(element.name != item.name && element.photoURL != item.photoURL){
+        newProducts.push(item);
+      }
+    });
+    this.productsByDefault = newProducts;
+    this.productsItem.push(item);
+  }
 }
-
-
-
-
-
-
