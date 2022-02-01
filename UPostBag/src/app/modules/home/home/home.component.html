@@ -73,11 +73,24 @@
           <!-- List Elements Section -->
           <product-item [productsItems]="productsItem"></product-item>
           <!-- End of List Elements Section -->
+         
 
         </div>
+
+        <ng-container *ngIf=" productsItem.length==0">
+          <div class="background-deco">
+            <button class="material-icons outlined listbtn">
+                format_list_bulleted
+            </button>
+            <div class="backg-text">
+              <h5>Su lista está vacia</h5>
+              <p>Comienza a agregar los artículos que necesitas para que no se te olvide nada. También puedes compartir las listas de compras con otros usuarios.</p>
+            </div>
+          </div>
+          </ng-container>
       </mat-sidenav-content>
     </mat-sidenav-container>
-
+  
   <div id="modaldeinfo" class="modal fade modaldeinfo" role="dialog" data-backdrop="static" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered ">
       <div class="modal-content">

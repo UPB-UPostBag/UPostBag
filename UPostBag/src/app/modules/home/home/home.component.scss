@@ -88,6 +88,55 @@ html {
   
 }
 
+.background-deco{
+  position: relative;
+  -webkit-box-orient: horizontal;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+
+}
+
+
+
+
+
+.background-deco h5{
+  
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Roboto,Helvetica-neue,sans-serif;
+  letter-spacing: normal;
+  color:#e0e2e5;
+  align-content: center;
+}
+.background-deco p{
+  font-family: Roboto,Helvetica-neue,sans-serif;
+  letter-spacing: .2px;
+  font-size: 14px;
+  color:#9aa0a6;
+  align-content: center;
+
+}
+.listbtn{
+
+  border: 0px;
+  text-align: center;
+  justify-content: center;
+  margin:20px;
+  background: #18202e;
+  color: #7baaf7;
+  border-radius: 50%;
+  padding: 60px;
+  
+  font-size: 6em;
+}
+
+
+
+
+
 .logo-nav-container button {
   border: 0px;
   background: #303134;
@@ -469,9 +518,6 @@ width: 100%;
 
   
 }
-input:invalid:required  {
-///
-  
-}
+
 
 //Loading SCSS
