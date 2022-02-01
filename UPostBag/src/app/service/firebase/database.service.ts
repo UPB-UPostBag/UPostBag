@@ -37,8 +37,8 @@ export class DatabaseService {
     });
   }
   
-  deleteList(list) {
-    return this.angularFirestore.collection(environment.firebaseCollections.Lists).doc(list.uid).delete();
+  deleteList(listUID) {
+    return this.angularFirestore.collection(environment.firebaseCollections.Lists).doc(listUID).delete();
   }
 
 
@@ -62,7 +62,11 @@ export class DatabaseService {
     return this.angularFirestore.collection(environment.firebaseCollections.Lists).doc(list.uid).delete();
   }
 
-
+  changePrimaryList(newPrimary: string, id: string) {
+    return this.angularFirestore.collection(environment.firebaseCollections.allUsers).doc(id).update({
+      primaryList: newPrimary
+    });
+  }
   //ProductsByDefault Functions
   /**********************************
    * by the structure this list shouldn´t be change.
