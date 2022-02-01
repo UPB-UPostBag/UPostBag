@@ -15,23 +15,49 @@
         </td>
         <td>
           <div class="more_list_options">
-        
             <button id="btn_more" class="material-icons outlined">more_vert</button>
-         
-           
-
             <div class="btns">
               <button id="btn_borrar" (click) = "deleteList(list)">Borrar</button>
               <button id="btn_cambiar_nombre" (click) = "changeListName(list)">Cambiar nombre</button>
               <button id="btn_compartir" (click) = "share(list)">Compartir</button>
             </div>
           </div>
-
         </td>
       </div>
     </tr>
   </tbody>
 </table>
+
+<div *ngIf="allShoppingLists.length > 1">
+  <header>Otras Listas</header>
+  <table class="table">
+    <tbody>
+      <tr *ngFor=" let list of allShoppingLists; let i = index">
+        <div (click)="listSelected(i)" [ngStyle]="{'background-color': i==Selected ? '#7babf767' : ''}">
+          <td>
+            <span>
+              {{list.name}}
+              <br>
+              items {{list.items.length}}
+            </span>
+          </td>
+          <td>
+            <div class="more_list_options">
+              <button id="btn_more" class="material-icons outlined">more_vert</button>
+              <div class="btns">
+                <button id="btn_borrar" (click) = "deleteList(list)">Borrar</button>
+                <button id="btn_cambiar_nombre" (click) = "changeListName(list)">Cambiar nombre</button>
+                <button id="btn_compartir" (click) = "share(list)">Compartir</button>
+              </div>
+            </div>
+          </td>
+        </div>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
 <div class="newlistsection">
   <button id="createnewlistbtn" data-bs-toggle="modal" type="button" data-bs-target="#crearnuevalista" (click)="createNewList()" >CREATE A NEW LIST</button>
 </div>
@@ -41,3 +67,70 @@
   <p>Help</p>
   <p>Privacy - terms</p>
 </div>
+<!--
+  <div>
+  <h5>
+    Lista Primaria
+    <button data-bs-toggle="modal" data-bs-target="#modaldeinfo">?</button>
+  </h5>
+  <table class="table">
+    <tbody>
+      <tr *ngFor=" let list of allShoppingLists; let i = index">
+        <div *ngIf="list.id == userInfo.primaryList">
+          <td>
+            <span>
+              {{list.name}}
+              <br>
+              items {{list.items.length}}
+            </span>
+          </td>
+          <td>
+            <div class="more_list_options">
+              <button id="btn_more" class="material-icons more">more_vert</button>
+              <div class="btns">
+                <button id="btn_compartir">Compartir</button>
+                <button id="btn_cambiar_nombre">Cambiar nombre</button>
+                <button id="btn_borrar">Borrar</button>
+              </div>
+            </div>
+          </td>
+        </div>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="allShoppingLists.length > 1">
+  <h5>Otras Listas</h5>
+  <table class="table">
+    <tbody>
+      <tr *ngFor=" let list of allShoppingLists; let i = index">
+        <div *ngIf="list.id != userInfo.primaryList">
+          <td>
+            <span>
+              {{list.name}}
+              <br>
+              items {{list.items.length}}
+            </span>
+          </td>
+          <td>
+            <div class="more_list_options">
+              <button id="btn_more" class="material-icons more">more_vert</button>
+              <div class="btns">
+                <button id="btn_compartir">Compartir</button>
+                <button id="btn_cambiar_nombre">Cambiar nombre</button>
+                <button id="btn_borrar">Borrar</button>
+              </div>
+            </div>
+          </td>
+        </div>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<button data-bs-toggle="modal" data-bs-target="#crearnuevalista">Create New List</button>
+<p>Send FeedBack</p>
+<p>Help</p>
+<p>Privacy - terms</p>
+-->
