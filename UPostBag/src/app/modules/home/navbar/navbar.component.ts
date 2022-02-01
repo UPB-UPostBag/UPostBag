@@ -47,18 +47,11 @@ export class NavbarComponent implements OnInit {
   click_Notif_More(msg: boolean) {
     this.change_page_click.emit(msg);
   }
-
-  removeList(list) {
-    if (confirm("Esta seguro de eliminar" + list.name)) {
-      this.databaseSvc.deleteList(list);
-    }
-  }
-
   
   deleteList(list) {
-    /* TODO delete users own and collab
-    this.databaseSvc.deleteList(list.id);
-    window.location.reload();*/
+    if (confirm("Esta seguro de eliminar" + list.name)) {
+     this.databaseSvc.deleteList(list);
+    }
   }
   
   share(list){

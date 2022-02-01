@@ -12,7 +12,7 @@ export class DatabaseService {
   constructor(private angularFirestore: AngularFirestore) { }
   
   //GLoblaList Functions
-  createList(collection: string, uid: string, isPrim: string, list) {
+  createList(collection: string, uid: string, isPrim:boolean, list) {
     new Promise<any>((resolve, rejects) => {
       this.angularFirestore.collection(collection).add(list).then(response => {
         (isPrim) ?
@@ -37,8 +37,17 @@ export class DatabaseService {
     });
   }
   
-  deleteList(listUID) {
-    return this.angularFirestore.collection(environment.firebaseCollections.Lists).doc(listUID).delete();
+  deleteList(list) {
+    list.collaborator.map( collaborators => {
+      (collaborators.isOwner) ?
+        this.angularFirestore.collection(environment.firebaseCollections.allUsers).doc(collaborators.email).update({
+          own: firebase.firestore.FieldValue.arrayRemove(list.id)
+        }) :
+        this.angularFirestore.collection(environment.firebaseCollections.allUsers).doc(collaborators.email).update({
+          collab: firebase.firestore.FieldValue.arrayRemove(list.id)
+        });
+    })
+    return this.angularFirestore.collection(environment.firebaseCollections.Lists).doc(list.id).delete();
   }
 
 
@@ -66,6 +75,12 @@ export class DatabaseService {
     return this.angularFirestore.collection(environment.firebaseCollections.allUsers).doc(id).update({
       primaryList: newPrimary
     });
+  }
+
+  createUser(collection: string,id, user) {
+    new Promise<any>((resolve, rejects) => {
+      this.angularFirestore.collection(environment.firebaseCollections.allUsers).doc(id).set(user);
+    })
   }
   //ProductsByDefault Functions
   /**********************************

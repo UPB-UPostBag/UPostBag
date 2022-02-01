@@ -157,7 +157,6 @@ export class HomeComponent implements OnInit {
 
   changeDBlistName(){
     this.databaseSvc.changeNameList(this.listToChange.id,this.listName);
-    //close pop up
   }
 }
 
